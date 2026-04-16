@@ -1,0 +1,3016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franco Resort — Beachfront Retreat in Sussex, Sierra Leone</title>
+  <meta name="description" content="Franco Resort is a family-owned beachfront escape in Sussex, Freetown — offering sea-view rooms, world-class fresh seafood, a private beach, and diving. Book your stay today.">
+  <meta name="keywords" content="Franco Resort, Florence's Resort, beach resort Freetown, Sussex Sierra Leone hotel, seafood restaurant Freetown, beachfront accommodation Sierra Leone">
+
+  <!-- Fonts — trimmed to essential weights only for low bandwidth -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+
+  <!-- GSAP — pinned version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lucide Icons — pinned version for cache reliability -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.js"></script>
+
+  <!-- Smooth scroll handled natively -->
+
+  <style>
+    /* ========== CSS RESET & VARIABLES ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Brand Colors - Coastal Luxury */
+      --navy: #0C1B33;
+      --navy-deep: #060E1A;
+      --navy-light: #162D52;
+      --gold: #C49A3C;
+      --gold-light: #D4B06A;
+      --gold-muted: #A68332;
+      --teal: #1A6B6A;
+      --teal-light: #2A8B8A;
+      --cream: #FBF8F2;
+      --cream-warm: #F5EFE3;
+      --sand: #E8DFD0;
+      --sand-dark: #C4B8A5;
+      --white: #FFFFFF;
+      --text-primary: #0C1B33;
+      --text-secondary: #4A5568;
+      --text-muted: #8896A6;
+      --text-on-dark: #F0EDE6;
+      --text-on-dark-muted: #9BA8B8;
+
+      /* Typography */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-accent: 'Italiana', serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 8rem;
+      --space-4xl: 12rem;
+
+      /* Transitions */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --duration-fast: 200ms;
+      --duration-med: 400ms;
+      --duration-slow: 700ms;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ========== NOISE TEXTURE OVERLAY ========== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    img { max-width: 100%; display: block; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    iframe { max-width: 100%; }
+
+    /* Prevent horizontal overflow on all devices */
+    html, body { overflow-x: hidden; max-width: 100vw; }
+
+    /* Touch-friendly tap targets */
+    @media (pointer: coarse) {
+      a, button { min-height: 44px; }
+    }
+
+    /* ========== UTILITY CLASSES ========== */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .section-label::before {
+      content: '';
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    .section-heading em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--teal);
+    }
+
+    .section-body {
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 600px;
+    }
+
+    .reveal { opacity: 0; transform: translateY(40px); }
+
+    /* ========== NAVIGATION ========== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 0;
+      transition: all var(--duration-med) var(--ease-out);
+    }
+
+    .nav.scrolled {
+      background: rgba(12, 27, 51, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1rem 0;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .nav-logo-name {
+      font-family: var(--font-accent);
+      font-size: 1.5rem;
+      color: var(--white);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-logo-tagline {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      transition: color var(--duration-fast) var(--ease-out);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width var(--duration-med) var(--ease-out);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .nav-cta {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy) !important;
+      background: var(--gold);
+      padding: 0.75rem 1.75rem;
+      border-radius: 0;
+      transition: transform var(--duration-fast) var(--ease-spring), background var(--duration-fast) var(--ease-out);
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-light);
+      transform: scale(1.03);
+    }
+    .nav-cta:active { transform: scale(0.98); }
+    .nav-cta::after { display: none !important; }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: transform var(--duration-med) var(--ease-out), opacity var(--duration-fast);
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      background: var(--navy-deep);
+    }
+
+    /* Animated SVG Paths Background */
+    .hero-paths-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-paths-layer svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Subtle radial glow behind content */
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 30% 60%, rgba(196,154,60,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 70% 30%, rgba(26,107,106,0.04) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      padding-top: 6rem;
+      padding-bottom: 0;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-tag {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 3rem;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: var(--space-lg);
+      max-width: 900px;
+    }
+
+    .hero-title .word {
+      display: inline-block;
+      margin-right: 0.25em;
+    }
+    .hero-title .word:last-child { margin-right: 0; }
+
+    .hero-title .letter {
+      display: inline-block;
+      background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.82));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title .word-em .letter {
+      font-style: italic;
+      font-weight: 400;
+      background: linear-gradient(to right, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-on-dark-muted);
+      max-width: 560px;
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: var(--space-3xl);
+      flex-wrap: wrap;
+    }
+
+    /* Glass CTA button (inspired by BackgroundPaths component) */
+    .hero-glass-cta {
+      display: inline-block;
+      position: relative;
+      background: linear-gradient(to bottom, rgba(196,154,60,0.15), rgba(255,255,255,0.05));
+      padding: 1px;
+      border-radius: 1rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      transition: box-shadow var(--duration-med) var(--ease-out), transform var(--duration-fast) var(--ease-spring);
+      cursor: pointer;
+    }
+
+    .hero-glass-cta:hover {
+      box-shadow: 0 8px 36px rgba(196,154,60,0.2);
+      transform: translateY(-2px);
+    }
+    .hero-glass-cta:active { transform: translateY(0) scale(0.98); }
+    .hero-glass-cta:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+
+    .hero-glass-cta-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      background: rgba(6,14,26,0.92);
+      padding: 1rem 2.25rem;
+      border-radius: calc(1rem - 1px);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background var(--duration-med) var(--ease-out);
+    }
+
+    .hero-glass-cta:hover .hero-glass-cta-inner {
+      background: rgba(6,14,26,0.98);
+    }
+
+    .hero-glass-cta-arrow {
+      opacity: 0.7;
+      transition: opacity var(--duration-med), transform var(--duration-med) var(--ease-out);
+    }
+    .hero-glass-cta:hover .hero-glass-cta-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    /* SVG path animation keyframes */
+    @keyframes pathDraw {
+      0% { stroke-dashoffset: 1; opacity: 0.3; }
+      50% { opacity: 0.6; }
+      100% { stroke-dashoffset: -1; opacity: 0.3; }
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy-deep);
+      background: var(--gold);
+      padding: 1.1rem 2.5rem;
+      border: none;
+      cursor: pointer;
+      transition: transform var(--duration-fast) var(--ease-spring), background var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--duration-fast) var(--ease-out);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--gold-light);
+      box-shadow: 0 8px 30px rgba(196,154,60,0.3);
+    }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary:active { transform: translateY(0) scale(0.98); }
+    .btn-primary:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-on-dark);
+      background: transparent;
+      padding: 1.1rem 2rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: transform var(--duration-fast) var(--ease-spring), border-color var(--duration-med) var(--ease-out), background var(--duration-med) var(--ease-out);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      background: rgba(196,154,60,0.08);
+      transform: translateY(-2px);
+    }
+    .btn-secondary:active { transform: translateY(0) scale(0.98); }
+    .btn-secondary:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+
+    /* Hero Stats Bar */
+    .hero-stats {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: rgba(12,27,51,0.6);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+    }
+
+    .hero-stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.75rem clamp(1.25rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .hero-stat {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-stat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(196,154,60,0.1);
+      border: 1px solid rgba(196,154,60,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero-stat-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--gold);
+    }
+
+    .hero-stat-text {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-on-dark);
+      line-height: 1.4;
+    }
+
+    .hero-stat-text span {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--text-on-dark-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ========== ABOUT SECTION ========== */
+    .about {
+      padding: var(--space-4xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .about-images {
+      position: relative;
+      height: 600px;
+    }
+
+    .about-img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 75%;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .about-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-img-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,27,51,0.3) 0%, transparent 40%);
+      mix-blend-mode: multiply;
+    }
+
+    .about-img-secondary {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60%;
+      height: 300px;
+      overflow: hidden;
+      border: 6px solid var(--cream);
+      box-shadow: -20px -20px 60px rgba(12,27,51,0.08);
+    }
+
+    .about-img-secondary img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-accent {
+      position: absolute;
+      top: 50%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      border: 1px solid var(--gold);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .about-content {
+      padding: var(--space-lg) 0;
+    }
+
+    .about-body p {
+      margin-bottom: var(--space-md);
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .about-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: var(--space-lg) 0;
+    }
+
+    .about-detail {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--teal);
+      line-height: 1.5;
+    }
+
+    /* ========== ROOMS SECTION ========== */
+    .rooms {
+      padding: var(--space-4xl) 0;
+      background: var(--navy-deep);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rooms::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(ellipse at 100% 30%, rgba(26,107,106,0.06) 0%, transparent 60%);
+    }
+
+    .rooms .section-label { color: var(--gold-light); }
+    .rooms .section-heading { color: var(--text-on-dark); }
+    .rooms .section-heading em { color: var(--gold-light); }
+    .rooms .section-body { color: var(--text-on-dark-muted); }
+
+    .rooms-header {
+      margin-bottom: var(--space-3xl);
+      max-width: 650px;
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: var(--space-xl);
+    }
+
+    .room-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform var(--duration-med) var(--ease-out), border-color var(--duration-med) var(--ease-out);
+      cursor: pointer;
+    }
+
+    .room-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(196,154,60,0.2);
+    }
+    .room-card:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .room-card-image {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .room-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--duration-slow) var(--ease-out);
+    }
+
+    .room-card:hover .room-card-image img {
+      transform: scale(1.05);
+    }
+
+    .room-card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6,14,26,0.6) 0%, transparent 50%);
+    }
+
+    .room-card-body {
+      padding: 1.75rem;
+    }
+
+    .room-card-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-on-dark);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .room-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-on-dark-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .room-card-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .room-feature-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(196,154,60,0.08);
+      border: 1px solid rgba(196,154,60,0.15);
+      padding: 0.35rem 0.75rem;
+    }
+
+    .rooms-pricing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+    }
+
+    .rooms-price-item {
+      text-align: center;
+    }
+
+    .rooms-price-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-on-dark-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .rooms-price-value {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--gold-light);
+    }
+
+    .rooms-price-value small {
+      font-size: 0.85rem;
+      color: var(--text-on-dark-muted);
+      font-family: var(--font-body);
+      font-weight: 400;
+    }
+
+    .rooms-price-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ========== RESTAURANT SECTION ========== */
+    .restaurant {
+      padding: var(--space-4xl) 0;
+      position: relative;
+    }
+
+    .restaurant-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .restaurant-content { padding-top: var(--space-lg); }
+
+    .restaurant-dishes {
+      margin-top: var(--space-xl);
+    }
+
+    .dish-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--sand);
+      transition: border-color var(--duration-fast) var(--ease-out);
+    }
+
+    .dish-item:hover {
+      border-color: var(--gold);
+    }
+
+    .dish-number {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--gold-muted);
+      opacity: 0.5;
+      min-width: 2rem;
+      line-height: 1;
+      padding-top: 0.2rem;
+    }
+
+    .dish-info { flex: 1; }
+
+    .dish-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .dish-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .restaurant-images {
+      position: relative;
+    }
+
+    .restaurant-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 700px;
+    }
+
+    .restaurant-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .restaurant-img-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,27,51,0.25) 0%, transparent 30%),
+                  linear-gradient(135deg, rgba(26,107,106,0.1) 0%, transparent 50%);
+      mix-blend-mode: multiply;
+    }
+
+    .restaurant-note {
+      margin-top: var(--space-lg);
+      padding: 1.25rem 1.5rem;
+      background: var(--cream-warm);
+      border-left: 3px solid var(--gold);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* ========== EXPERIENCE SECTION ========== */
+    .experience {
+      padding: var(--space-4xl) 0;
+      background: var(--cream-warm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background: radial-gradient(ellipse at 30% 100%, rgba(26,107,106,0.04) 0%, transparent 50%);
+    }
+
+    .experience-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto var(--space-3xl);
+    }
+
+    .experience-header .section-label {
+      justify-content: center;
+    }
+
+    .experience-header .section-label::before { display: none; }
+
+    .experience-header .section-heading {
+      margin-bottom: var(--space-md);
+    }
+
+    .experience-header .section-body {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      padding: 2.5rem 2rem;
+      background: var(--white);
+      border: 1px solid var(--sand);
+      transition: transform var(--duration-med) var(--ease-out), box-shadow var(--duration-med) var(--ease-out), border-color var(--duration-med) var(--ease-out);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), var(--teal));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--duration-med) var(--ease-out);
+    }
+
+    .exp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(12,27,51,0.08), 0 4px 12px rgba(12,27,51,0.04);
+      border-color: transparent;
+    }
+
+    .exp-card:hover::before { transform: scaleX(1); }
+    .exp-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    .exp-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(26,107,106,0.08), rgba(196,154,60,0.06));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .exp-card-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--teal);
+    }
+
+    .exp-card-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .exp-card-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    /* ========== TESTIMONIALS SECTION ========== */
+    .testimonials {
+      padding: var(--space-4xl) 0;
+      background: var(--navy-deep);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(26,107,106,0.05) 0%, transparent 60%);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .testimonials-header .section-label {
+      justify-content: center;
+      color: var(--gold-light);
+    }
+
+    .testimonials-header .section-label::before { display: none; }
+
+    .testimonials-header .section-heading {
+      color: var(--text-on-dark);
+    }
+
+    .testimonials-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      padding: 2.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      transition: border-color var(--duration-med) var(--ease-out);
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(196,154,60,0.15);
+    }
+
+    .testimonial-quote-mark {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.3;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--text-on-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-stars svg {
+      width: 14px;
+      height: 14px;
+      color: var(--gold);
+      fill: var(--gold);
+    }
+
+    /* ========== CONTACT / FIND US SECTION ========== */
+    .contact {
+      padding: var(--space-4xl) 0;
+      position: relative;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .contact-content { padding-top: var(--space-lg); }
+
+    .contact-details {
+      margin-top: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .contact-item:hover { color: var(--text-primary); }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--cream-warm);
+      border: 1px solid var(--sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+    }
+
+    .contact-item:hover .contact-item-icon {
+      background: rgba(196,154,60,0.08);
+      border-color: var(--gold);
+    }
+
+    .contact-item-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--teal);
+    }
+
+    .contact-map {
+      position: relative;
+      overflow: hidden;
+      height: 500px;
+      background: var(--sand);
+    }
+
+    .contact-map img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-map-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: var(--white);
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(12,27,51,0.12);
+    }
+
+    .contact-map-overlay-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-map-overlay-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-directions {
+      margin-top: var(--space-lg);
+      padding: 1.25rem 1.5rem;
+      background: var(--cream-warm);
+      border-left: 3px solid var(--teal);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--navy-deep);
+      padding: var(--space-xl) 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-accent);
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.7rem;
+      color: var(--text-on-dark-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-on-dark-muted);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-on-dark-muted);
+      cursor: pointer;
+      transition: transform var(--duration-fast) var(--ease-spring), border-color var(--duration-med) var(--ease-out), color var(--duration-med) var(--ease-out);
+    }
+
+    .footer-social:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .footer-social:active { transform: translateY(0) scale(0.95); }
+    .footer-social:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    /* ========== RESPONSIVE — 1024px (tablet landscape) ========== */
+    @media (max-width: 1024px) {
+      .rooms-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-track { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-track .testimonial-card:nth-child(n+3) { display: none; }
+      .experience-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-inner,
+      .restaurant-inner,
+      .contact-inner {
+        gap: clamp(2rem, 4vw, 4rem);
+      }
+    }
+
+    /* ========== RESPONSIVE — 768px (tablet portrait) ========== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(12,27,51,0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+        gap: 0.25rem;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .nav-links.open a {
+        padding: 0.75rem 0;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      .nav-links.open .nav-cta {
+        margin-top: 0.75rem;
+        text-align: center;
+        display: block;
+        padding: 0.85rem 1.75rem;
+      }
+
+      .hero { min-height: 100dvh; }
+      .hero-content { padding-top: 5rem; }
+      .hero-title { font-size: clamp(2.5rem, 10vw, 3.5rem); line-height: 1.1; }
+      .hero-subtitle { font-size: 0.95rem; max-width: 100%; }
+      .hero-glass-cta-inner { font-size: 0.85rem; padding: 0.9rem 1.75rem; }
+
+      .hero-stats-inner {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+      }
+      .hero-stat { gap: 0.75rem; }
+
+      .about-inner,
+      .restaurant-inner,
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-images {
+        height: 380px;
+        order: -1;
+      }
+
+      .about-img-main { width: 100%; height: 260px; }
+      .about-img-secondary { width: 55%; height: 180px; }
+
+      .rooms-grid { grid-template-columns: 1fr; max-width: 500px; }
+      .rooms-header { margin-bottom: var(--space-xl); }
+
+      .experience-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .testimonials-track { grid-template-columns: 1fr; }
+      .testimonials-track .testimonial-card:nth-child(n+3) { display: block; }
+      .testimonials-track .testimonial-card:nth-child(n+4) { display: none; }
+
+      .restaurant-img-wrapper { height: 350px; }
+      .contact-map { height: 300px; }
+
+      .rooms-pricing {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .rooms-price-divider { display: none; }
+      .rooms-price-item { text-align: center; min-width: 120px; }
+
+      .section-heading { font-size: clamp(2rem, 7vw, 3rem); }
+      .section-body { font-size: 0.95rem; }
+
+      /* Reduce section padding on mobile */
+      .about, .rooms, .restaurant, .experience, .testimonials, .contact {
+        padding: var(--space-3xl) 0;
+      }
+
+      .contact-directions {
+        padding: 1rem 1.25rem;
+        font-size: 0.85rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      .footer-socials { justify-content: center; }
+    }
+
+    /* ========== RESPONSIVE — 480px (small phones) ========== */
+    @media (max-width: 480px) {
+      .hero-content { padding-top: 4.5rem; }
+      .hero-title { font-size: clamp(2rem, 9vw, 2.8rem); }
+      .hero-tag { font-size: 0.6rem; letter-spacing: 0.25em; margin-bottom: 1.5rem; }
+      .hero-subtitle { font-size: 0.9rem; line-height: 1.7; }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+      }
+      .hero-glass-cta,
+      .btn-secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .hero-glass-cta-inner { width: 100%; justify-content: center; }
+      .btn-secondary { display: flex; justify-content: center; }
+
+      .hero-stat-text { font-size: 0.8rem; }
+      .hero-stat-text span { font-size: 0.65rem; }
+
+      .about-images { height: 320px; }
+      .about-img-main { height: 220px; }
+      .about-img-secondary { width: 60%; height: 160px; }
+
+      .rooms-grid { max-width: 100%; }
+      .room-card-image { height: 220px; }
+      .room-card-body { padding: 1.25rem; }
+      .room-card-title { font-size: 1.25rem; }
+
+      .experience-grid { grid-template-columns: 1fr; }
+      .exp-card { padding: 1.75rem 1.5rem; }
+
+      .testimonial-card { padding: 1.75rem; }
+      .testimonial-text { font-size: 1rem; }
+
+      .dish-item { gap: 1rem; padding: 1rem 0; }
+      .dish-name { font-size: 1.1rem; }
+
+      .contact-map { height: 250px; }
+
+      .rooms-pricing { gap: 1rem; padding: 1.5rem 1rem; }
+      .rooms-price-value { font-size: 1.5rem; }
+
+      .section-heading { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+
+      .about, .rooms, .restaurant, .experience, .testimonials, .contact {
+        padding: var(--space-2xl) 0;
+      }
+
+      .contact-item { font-size: 0.85rem; gap: 0.75rem; }
+      .contact-item-icon { width: 38px; height: 38px; }
+      .contact-item-icon svg { width: 16px; height: 16px; }
+
+      .footer-copy { font-size: 0.75rem; }
+      .footer-social { width: 36px; height: 36px; }
+    }
+
+    /* ========== RESPONSIVE — 375px and below (very small) ========== */
+    @media (max-width: 375px) {
+      .container { padding: 0 1rem; }
+      .hero-content { padding: 0 1rem; padding-top: 4rem; }
+      .hero-title { font-size: 1.85rem; }
+      .hero-subtitle { font-size: 0.85rem; }
+      .hero-tag { font-size: 0.55rem; margin-bottom: 1rem; }
+      .hero-ctas { margin-bottom: var(--space-xl); }
+
+      .nav-logo-name { font-size: 1.25rem; }
+      .nav-logo-tagline { font-size: 0.5rem; }
+      .nav-inner { padding: 0 1rem; }
+
+      .section-heading { font-size: 1.65rem; }
+      .section-label { font-size: 0.65rem; gap: 0.5rem; }
+      .section-label::before { width: 1.5rem; }
+      .section-body { font-size: 0.9rem; }
+      .about-detail { font-size: 1rem; }
+
+      .about-images { height: 280px; }
+      .about-img-main { height: 190px; }
+      .about-img-secondary { width: 55%; height: 140px; }
+
+      .room-card-image { height: 190px; }
+      .room-card-desc { font-size: 0.82rem; }
+      .room-feature-tag { font-size: 0.6rem; padding: 0.25rem 0.5rem; }
+
+      .exp-card { padding: 1.5rem 1.25rem; }
+      .exp-card-title { font-size: 1.15rem; }
+      .exp-card-desc { font-size: 0.82rem; }
+
+      .dish-item { gap: 0.75rem; }
+      .dish-number { font-size: 0.75rem; min-width: 2rem; }
+      .dish-name { font-size: 1rem; }
+      .dish-desc { font-size: 0.78rem; }
+
+      .restaurant-img-wrapper { height: 280px; }
+
+      .testimonial-card { padding: 1.5rem; }
+      .testimonial-text { font-size: 0.9rem; }
+      .testimonial-author { font-size: 0.8rem; }
+
+      .contact-item { font-size: 0.8rem; }
+      .contact-map { height: 220px; }
+      .contact-directions { padding: 0.85rem 1rem; font-size: 0.8rem; }
+
+      .rooms-pricing { flex-direction: column; gap: 0.75rem; padding: 1.25rem 1rem; }
+      .rooms-price-item { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+
+      .about, .rooms, .restaurant, .experience, .testimonials, .contact {
+        padding: var(--space-xl) 0;
+      }
+    }
+
+    /* ========== RESPONSIVE — 320px (very narrow) ========== */
+    @media (max-width: 320px) {
+      .hero-title { font-size: 1.6rem; }
+      .hero-glass-cta-inner { font-size: 0.78rem; padding: 0.75rem 1.25rem; }
+      .section-heading { font-size: 1.5rem; }
+      .room-card-body { padding: 1rem; }
+      .room-card-title { font-size: 1.1rem; }
+      .contact-item-icon { width: 34px; height: 34px; }
+    }
+
+    /* ========== LARGE SCREENS ========== */
+    @media (min-width: 1441px) {
+      .container { max-width: 1400px; }
+      .hero-title { font-size: 7.5rem; }
+      .hero-content { max-width: 1400px; }
+      .hero-stats-inner { max-width: 1400px; }
+    }
+
+    /* ========== LANDSCAPE MOBILE ========== */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        min-height: auto;
+        padding-top: 5rem;
+        padding-bottom: 1rem;
+      }
+      .hero-title { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 1rem; }
+      .hero-subtitle { margin-bottom: 1rem; }
+      .hero-ctas { margin-bottom: 1rem; }
+      .hero-stats-inner { padding: 1rem clamp(1.25rem, 4vw, 3rem); }
+    }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      .letter { opacity: 1 !important; transform: none !important; }
+      html { scroll-behavior: auto; }
+    }
+    /* ========== BOOKING MODAL SYSTEM ========== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(12,27,51,0.7);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-overlay.active .modal-content {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: var(--cream);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(30px) scale(0.97);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold) transparent;
+    }
+    .modal-content::-webkit-scrollbar { width: 5px; }
+    .modal-content::-webkit-scrollbar-track { background: transparent; }
+    .modal-content::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: rgba(12,27,51,0.7);
+      color: var(--white);
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.2s ease;
+    }
+    .modal-close:hover { background: rgba(12,27,51,0.9); }
+    .modal-close:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    /* Room Detail Modal */
+    .room-modal-hero {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+    .room-modal-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .room-modal-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(to top, rgba(12,27,51,0.7), transparent);
+    }
+    .room-modal-hero-title {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 2rem;
+      z-index: 2;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .room-modal-body {
+      padding: 2rem;
+    }
+    .room-modal-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .room-modal-amenities {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .room-amenity {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+    }
+    .room-amenity i {
+      width: 18px;
+      height: 18px;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .room-modal-pricing {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(12,27,51,0.04);
+      border: 1px solid rgba(12,27,51,0.08);
+      margin-bottom: 2rem;
+    }
+    .room-modal-price-item {
+      flex: 1;
+    }
+    .room-modal-price-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .room-modal-price-value {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .room-modal-price-value small {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    /* Date picker section */
+    .room-modal-dates {
+      margin-bottom: 1.5rem;
+    }
+    .room-modal-dates-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    .room-modal-dates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .date-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .date-field label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .date-field input {
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(12,27,51,0.15);
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      transition: border-color 0.2s ease;
+    }
+    .date-field input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(196,154,60,0.1);
+    }
+
+    .nights-display {
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    .nights-display strong {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .room-modal-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      background: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .room-modal-total-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .room-modal-total-value {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .btn-book {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-book:hover { background: #d4a94a; transform: translateY(-1px); }
+    .btn-book:active { transform: translateY(0); }
+    .btn-book:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+    .btn-book:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Summary Modal */
+    .summary-modal-body {
+      padding: 2.5rem 2rem;
+    }
+    .summary-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .summary-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(12,27,51,0.08);
+    }
+    .summary-row:last-of-type { border-bottom: none; }
+    .summary-row-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .summary-row-value {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+
+    .summary-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background: var(--navy);
+      margin: 1.5rem 0;
+    }
+    .summary-total-label {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .summary-total-value {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .summary-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    .btn-back {
+      flex: 1;
+      padding: 1rem;
+      border: 1px solid rgba(12,27,51,0.2);
+      background: transparent;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn-back:hover { background: rgba(12,27,51,0.04); }
+    .btn-back:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .btn-checkout {
+      flex: 2;
+      padding: 1rem;
+      border: none;
+      background: var(--teal);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-checkout:hover { background: #1d7a79; transform: translateY(-1px); }
+    .btn-checkout:active { transform: translateY(0); }
+    .btn-checkout:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    /* Checkout Modal */
+    .checkout-modal .modal-content {
+      max-width: 500px;
+      background: #1a1a1a;
+    }
+    .checkout-header {
+      padding: 1.5rem 2rem;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .checkout-brand {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--gold);
+    }
+    .checkout-secured {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .checkout-iframe-wrap {
+      width: 100%;
+      height: 600px;
+      border: none;
+      background: #1a1a1a;
+    }
+    .checkout-iframe-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Modal responsiveness */
+    @media (max-width: 600px) {
+      .modal-content { max-height: 95vh; }
+      .room-modal-hero { height: 220px; }
+      .room-modal-hero-title { font-size: 1.5rem; left: 1.25rem; bottom: 1rem; }
+      .room-modal-body { padding: 1.25rem; }
+      .room-modal-amenities { grid-template-columns: 1fr; }
+      .room-modal-dates-grid { grid-template-columns: 1fr; }
+      .room-modal-pricing { flex-direction: column; gap: 0.75rem; }
+      .summary-modal-body { padding: 1.5rem 1.25rem; }
+      .summary-actions { flex-direction: column; }
+      .btn-back, .btn-checkout { flex: none; }
+      .summary-title { font-size: 1.4rem; }
+      .checkout-modal .modal-content { max-width: 100%; }
+      .checkout-iframe-wrap { height: 500px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Franco Resort - Home">
+        <span class="nav-logo-name">Franco Resort</span>
+        <span class="nav-logo-tagline">Sussex &middot; Sierra Leone</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#restaurant">Dining</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#rooms" class="nav-cta">Book Your Stay</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="hero">
+    <!-- Animated SVG Paths (replicating BackgroundPaths component) -->
+    <div class="hero-paths-layer" id="hero-paths-1"></div>
+    <div class="hero-paths-layer" id="hero-paths-2"></div>
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">Sussex &middot; Sierra Leone</div>
+      <h1 class="hero-title" id="hero-title" aria-label="Where the Ocean Meets Endless Calm"></h1>
+      <p class="hero-subtitle">A hidden gem on the Freetown Peninsula — where fresh seafood, sea-view rooms, and the rhythm of the Atlantic come together. Your home away from home.</p>
+      <div class="hero-ctas">
+        <a href="#rooms" class="hero-glass-cta">
+          <span class="hero-glass-cta-inner">
+            <span>Book Your Stay</span>
+            <span class="hero-glass-cta-arrow">&rarr;</span>
+          </span>
+        </a>
+        <a href="#about" class="btn-secondary">
+          Explore the Resort
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stats-inner">
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <i data-lucide="door-open"></i>
+          </div>
+          <div class="hero-stat-text">
+            7 Sea-View Rooms
+            <span>Every room over the water</span>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <i data-lucide="map-pin"></i>
+          </div>
+          <div class="hero-stat-text">
+            30 Min from Freetown
+            <span>Freetown Peninsula coast</span>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <i data-lucide="heart"></i>
+          </div>
+          <div class="hero-stat-text">
+            Est. by Franco &amp; Florence
+            <span>Family-owned &amp; operated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT ====== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-images">
+          <div class="about-img-main reveal">
+            <img src="https://placehold.co/480x336/1A6B6A/FBF8F2?text=Resort+Exterior" alt="Franco Resort Mediterranean-inspired architecture overlooking the ocean" loading="lazy" width="800" height="560">
+          </div>
+          <div class="about-img-secondary reveal">
+            <img src="https://placehold.co/400x267/C49A3C/FBF8F2?text=Franco+%26+Florence" alt="Franco and Florence, the resort founders" loading="lazy" width="600" height="400">
+          </div>
+          <div class="about-accent"></div>
+        </div>
+
+        <div class="about-content">
+          <div class="section-label reveal">Our Story</div>
+          <h2 class="section-heading reveal">Built from the Shore, <em>With Heart</em></h2>
+          <div class="about-body section-body reveal">
+            <p>Franco Resort is more than a place to stay — it's a labour of love. Built from scratch by Franco and Florence, a Sierra Leonean/Italian family, the resort sits directly on a pristine tidal inlet along one of Sierra Leone's most beautiful stretches of coastline.</p>
+            <p>Rebuilt after the war and lovingly refined over the years, it remains one of the most personal and characterful escapes on the entire peninsula.</p>
+          </div>
+          <div class="about-divider reveal"></div>
+          <p class="about-detail reveal">With Mediterranean-inspired architecture, panoramic mountain views, and the sound of the ocean at every turn — Franco's is the kind of place that stays with you long after you've left.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ROOMS ====== -->
+  <section class="rooms" id="rooms">
+    <div class="container">
+      <div class="rooms-header">
+        <div class="section-label reveal">Accommodation</div>
+        <h2 class="section-heading reveal">Seven Rooms, <em>Seven Views</em></h2>
+        <p class="section-body reveal" style="margin-top: var(--space-md);">Every one of our seven ensuite rooms is built over the water's edge, with uninterrupted views of Sussex Bay and the surrounding coastline.</p>
+      </div>
+
+      <div class="rooms-grid">
+        <div class="room-card" tabindex="0">
+          <div class="room-card-image">
+            <img src="https://placehold.co/400x267/162D52/FBF8F2?text=Sea+View+Suite" alt="Sea view suite with panoramic ocean views" loading="lazy" width="600" height="400">
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-card-title">Sea View Suite</h3>
+            <p class="room-card-desc">Corner rooms on the second floor with unmatched panoramic views of the river inlet and Sussex Bay.</p>
+            <div class="room-card-features">
+              <span class="room-feature-tag">Sea View</span>
+              <span class="room-feature-tag">A/C</span>
+              <span class="room-feature-tag">Ensuite</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="room-card" tabindex="0">
+          <div class="room-card-image">
+            <img src="https://placehold.co/400x267/1A6B6A/FBF8F2?text=Ocean+Room" alt="Ocean front room with direct water views" loading="lazy" width="600" height="400">
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-card-title">Ocean Front Room</h3>
+            <p class="room-card-desc">Spacious rooms with private hot water bathrooms, flat-screen TV, and the sound of waves just below.</p>
+            <div class="room-card-features">
+              <span class="room-feature-tag">Ocean View</span>
+              <span class="room-feature-tag">Mini Fridge</span>
+              <span class="room-feature-tag">TV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="room-card" tabindex="0">
+          <div class="room-card-image">
+            <img src="https://placehold.co/400x267/0C1B33/FBF8F2?text=Comfort+Room" alt="Comfortable room equipped with modern amenities" loading="lazy" width="600" height="400">
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-card-title">Comfort Room</h3>
+            <p class="room-card-desc">Cozy rooms with ceiling fan, mosquito net, and everything you need for a peaceful tropical retreat.</p>
+            <div class="room-card-features">
+              <span class="room-feature-tag">Ceiling Fan</span>
+              <span class="room-feature-tag">Mosquito Net</span>
+              <span class="room-feature-tag">Hot Water</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rooms-pricing reveal">
+        <div class="rooms-price-item">
+          <div class="rooms-price-label">Low Season</div>
+          <div class="rooms-price-value">$57.50 <small>/night</small></div>
+        </div>
+        <div class="rooms-price-divider"></div>
+        <div class="rooms-price-item">
+          <div class="rooms-price-label">High Season</div>
+          <div class="rooms-price-value">$69 <small>/night</small></div>
+        </div>
+        <div class="rooms-price-divider"></div>
+        <div class="rooms-price-item">
+          <div class="rooms-price-label">Includes</div>
+          <div class="rooms-price-value" style="font-size: 1.25rem;">Tax Included</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== RESTAURANT ====== -->
+  <section class="restaurant" id="restaurant">
+    <div class="container">
+      <div class="restaurant-inner">
+        <div class="restaurant-content">
+          <div class="section-label reveal">Dining</div>
+          <h2 class="section-heading reveal">Fresh from the Sea, <em>Every Day</em></h2>
+          <p class="section-body reveal" style="margin-top: var(--space-md);">The heart of Franco Resort is its restaurant — a beloved institution among Freetown locals and expats alike. Every dish is made from the day's freshest catch, blended with the finest Italian culinary tradition.</p>
+
+          <div class="restaurant-dishes">
+            <div class="dish-item">
+              <span class="dish-number">01</span>
+              <div class="dish-info">
+                <div class="dish-name">Fish Carpaccio</div>
+                <div class="dish-desc">"Possibly the best thing you'll eat in Sierra Leone"</div>
+              </div>
+            </div>
+            <div class="dish-item">
+              <span class="dish-number">02</span>
+              <div class="dish-info">
+                <div class="dish-name">Lobster Skewers with Chips</div>
+                <div class="dish-desc">Fresh Atlantic lobster, grilled to perfection</div>
+              </div>
+            </div>
+            <div class="dish-item">
+              <span class="dish-number">03</span>
+              <div class="dish-info">
+                <div class="dish-name">Spaghetti with Mangrove Crab</div>
+                <div class="dish-desc">Italian tradition meets Sierra Leonean waters</div>
+              </div>
+            </div>
+            <div class="dish-item">
+              <span class="dish-number">04</span>
+              <div class="dish-info">
+                <div class="dish-name">Grilled Barracuda</div>
+                <div class="dish-desc">Served with fresh tomato salad</div>
+              </div>
+            </div>
+            <div class="dish-item">
+              <span class="dish-number">05</span>
+              <div class="dish-info">
+                <div class="dish-name">Tiger Prawns</div>
+                <div class="dish-desc">Simply prepared, impossibly fresh</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant-note reveal">
+            <strong>Please note:</strong> Food is cooked to order. For dinner, booking in advance is recommended. The restaurant is especially busy on Sundays.
+          </div>
+        </div>
+
+        <div class="restaurant-images">
+          <div class="restaurant-img-wrapper">
+            <img src="images/fresh-uncooked-sea-food-specialties.jpg" alt="Fresh seafood dining at Franco Resort restaurant" loading="lazy" width="800" height="900">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EXPERIENCE ====== -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <div class="experience-header">
+        <div class="section-label reveal">Experience</div>
+        <h2 class="section-heading reveal">Sun, Sand &amp; <em>The Deep Blue</em></h2>
+        <p class="section-body reveal" style="margin-top: var(--space-md);">The resort sits on its own private beach — a sheltered tidal inlet where children can play safely while parents unwind with a chilled glass of wine. A place to slow down, breathe deep, and feel the world simplify.</p>
+      </div>
+
+      <div class="experience-grid">
+        <div class="exp-card" tabindex="0">
+          <div class="exp-card-icon">
+            <i data-lucide="umbrella"></i>
+          </div>
+          <h3 class="exp-card-title">Private Beach</h3>
+          <p class="exp-card-desc">A sheltered tidal river inlet with beach huts, lounge chairs, and a wide stretch of unspoiled coastline at low tide — often completely deserted.</p>
+        </div>
+
+        <div class="exp-card" tabindex="0">
+          <div class="exp-card-icon">
+            <i data-lucide="waves"></i>
+          </div>
+          <h3 class="exp-card-title">Diving School</h3>
+          <p class="exp-card-desc">Franco runs the on-site diving school personally. Explore the crystal-clear waters of the Atlantic off the Freetown Peninsula.</p>
+        </div>
+
+        <div class="exp-card" tabindex="0">
+          <div class="exp-card-icon">
+            <i data-lucide="fish"></i>
+          </div>
+          <h3 class="exp-card-title">Fishing Trips</h3>
+          <p class="exp-card-desc">Arranged by the owners themselves, head out into the Atlantic for an authentic deep-sea fishing experience.</p>
+        </div>
+
+        <div class="exp-card" tabindex="0">
+          <div class="exp-card-icon">
+            <i data-lucide="mountain"></i>
+          </div>
+          <h3 class="exp-card-title">Peninsula Views</h3>
+          <p class="exp-card-desc">Stunning panoramic views of the peninsula mountains and unforgettable Atlantic sunsets from every vantage point.</p>
+        </div>
+
+        <div class="exp-card" tabindex="0">
+          <div class="exp-card-icon">
+            <i data-lucide="map"></i>
+          </div>
+          <h3 class="exp-card-title">Beach Hopping</h3>
+          <p class="exp-card-desc">Easy day trips to River No. 2 Beach, Lakka Beach, and Bureh Beach — some of West Africa's most beautiful shores.</p>
+        </div>
+
+        <div class="exp-card" tabindex="0">
+          <div class="exp-card-icon">
+            <i data-lucide="sunset"></i>
+          </div>
+          <h3 class="exp-card-title">Atlantic Sunsets</h3>
+          <p class="exp-card-desc">Watch the sun dip below the horizon from the restaurant terrace or the sand — with a cold drink in hand and nowhere to be.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIALS ====== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <div class="section-label reveal">What Our Guests Say</div>
+        <h2 class="section-heading reveal">Stories from <em>Our Guests</em></h2>
+      </div>
+
+      <div class="testimonials-track">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <p class="testimonial-text">In many ways a hidden gem along the coastline of Sierra Leone. The rooms are beautifully decorated with sea views, and it remains one of the nicest places in Freetown.</p>
+          <div class="testimonial-author">— Guest via TripAdvisor</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <p class="testimonial-text">The fish carpaccio is possibly the best thing you will eat in Sierra Leone. This is the best value accommodation on any beach south of Freetown.</p>
+          <div class="testimonial-author">— Guest via TripAdvisor</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <p class="testimonial-text">The perfect place for a dinner date, a special event, even a proposal. The setting enhances every special moment you plan.</p>
+          <div class="testimonial-author">— Guest via TripAdvisor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-content">
+          <div class="section-label reveal">Find Us</div>
+          <h2 class="section-heading reveal">Come Stay, <em>Come Eat, Come Back</em></h2>
+          <p class="section-body reveal" style="margin-top: var(--space-md);">Franco Resort is located in Sussex Village on the Freetown Peninsula — approximately 30 minutes from central Freetown on the road toward River Number 2.</p>
+
+          <div class="contact-details">
+            <a href="tel:+23276366366" class="contact-item reveal">
+              <div class="contact-item-icon"><i data-lucide="phone"></i></div>
+              <span>+232 76 366366</span>
+            </a>
+            <a href="tel:+23276744406" class="contact-item reveal">
+              <div class="contact-item-icon"><i data-lucide="phone"></i></div>
+              <span>+232 76 744406</span>
+            </a>
+            <a href="mailto:info@florencesresort.com" class="contact-item reveal">
+              <div class="contact-item-icon"><i data-lucide="mail"></i></div>
+              <span>info@florencesresort.com</span>
+            </a>
+            <a href="https://www.florencesresort.com" class="contact-item reveal" target="_blank" rel="noopener noreferrer">
+              <div class="contact-item-icon"><i data-lucide="globe"></i></div>
+              <span>www.florencesresort.com</span>
+            </a>
+            <div class="contact-item reveal">
+              <div class="contact-item-icon"><i data-lucide="map-pin"></i></div>
+              <span>Sussex Village, Western Peninsula, Sierra Leone</span>
+            </div>
+          </div>
+
+          <div class="contact-directions reveal">
+            There is approximately 300 metres of unpaved road between the Peninsula Highway and the resort entrance. Accessible by car year-round. Look for the resort sign on the right side of the road.
+          </div>
+        </div>
+
+        <div class="contact-map reveal">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.552740614031!2d-13.234131324740279!3d8.34715769928868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf04de82b27113f5%3A0xdac2b4a72edd6d6d!2sFlorence%20Resort!5e0!3m2!1sen!2ssl!4v1775954213430!5m2!1sen!2ssl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Franco Resort location on Google Maps"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-brand-name">Franco Resort</span>
+          <span class="footer-brand-sub">Sussex &middot; Sierra Leone</span>
+        </div>
+        <p class="footer-copy">&copy; 2026 Franco Resort. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Visit us on Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="mailto:info@florencesresort.com" class="footer-social" aria-label="Email us">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <a href="tel:+23276366366" class="footer-social" aria-label="Call us">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========== SMOOTH SCROLL (native, no Lenis) ==========
+    // Removed Lenis — it causes stiff/janky behavior in many browsers.
+    // Using native smooth scroll + GSAP ScrollTrigger only.
+
+    // ========== LUCIDE ICONS ==========
+    lucide.createIcons();
+
+    // ========== NAV SCROLL STATE ==========
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ========== MOBILE NAV TOGGLE ==========
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      const spans = navToggle.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        const spans = navToggle.querySelectorAll('span');
+        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
+
+    // ========== GSAP SCROLL ANIMATIONS ==========
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ========== LOW BANDWIDTH DETECTION ==========
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const isSlowNetwork = conn && (conn.saveData || conn.effectiveType === '2g' || conn.effectiveType === 'slow-2g' || conn.downlink < 0.5);
+    const pathCount = isSlowNetwork ? 10 : 20;
+
+    // ========== ANIMATED SVG PATHS (BackgroundPaths recreation) ==========
+    function generatePaths(position) {
+      const paths = [];
+      const step = isSlowNetwork ? 2 : 1;
+      for (let i = 0; i < pathCount; i++) {
+        const idx = i * step;
+        const d = `M-${380 - idx * 5 * position} -${189 + idx * 6}C-${
+          380 - idx * 5 * position
+        } -${189 + idx * 6} -${312 - idx * 5 * position} ${216 - idx * 6} ${
+          152 - idx * 5 * position
+        } ${343 - idx * 6}C${616 - idx * 5 * position} ${470 - idx * 6} ${
+          684 - idx * 5 * position
+        } ${875 - idx * 6} ${684 - idx * 5 * position} ${875 - idx * 6}`;
+        paths.push({ d, width: 0.5 + idx * 0.03, opacity: 0.1 + idx * 0.03, id: idx });
+      }
+      return paths;
+    }
+
+    function renderPathsSVG(containerId, position) {
+      const container = document.getElementById(containerId);
+      const paths = generatePaths(position);
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 696 316');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('class', 'w-full h-full');
+      svg.innerHTML = '<title>Background Paths</title>';
+
+      paths.forEach((p) => {
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', p.d);
+        path.setAttribute('stroke', 'currentColor');
+        path.setAttribute('stroke-width', String(p.width));
+        path.setAttribute('stroke-opacity', String(p.opacity));
+
+        // Get path length for dash animation
+        svg.appendChild(path);
+        const len = path.getTotalLength ? path.getTotalLength() : 1000;
+        path.style.strokeDasharray = len;
+        path.style.strokeDashoffset = len * 0.7;
+
+        // Animate with GSAP — skip continuous loops on slow networks
+        if (!isSlowNetwork) {
+          const duration = 20 + Math.random() * 10;
+          gsap.to(path, {
+            strokeDashoffset: -len,
+            duration: duration,
+            repeat: -1,
+            ease: 'none',
+          });
+          gsap.to(path, {
+            strokeOpacity: p.opacity * 2,
+            duration: duration / 2,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+          });
+        }
+      });
+
+      // Set SVG color to match theme (gold-tinted on navy)
+      svg.style.color = 'rgba(196, 154, 60, 0.45)';
+      container.appendChild(svg);
+    }
+
+    renderPathsSVG('hero-paths-1', 1);
+    renderPathsSVG('hero-paths-2', -1);
+
+    // ========== HERO TITLE — Letter-by-letter spring animation ==========
+    const heroTitleEl = document.getElementById('hero-title');
+    const titleParts = [
+      { text: 'Where', em: false },
+      { text: 'the', em: false },
+      { text: 'Ocean', em: false },
+      { text: 'Meets', em: false },
+      { text: 'Endless', em: true },
+      { text: 'Calm', em: true },
+    ];
+
+    titleParts.forEach((part) => {
+      const wordSpan = document.createElement('span');
+      wordSpan.className = part.em ? 'word word-em' : 'word';
+      part.text.split('').forEach((char) => {
+        const letterSpan = document.createElement('span');
+        letterSpan.className = 'letter';
+        letterSpan.textContent = char;
+        wordSpan.appendChild(letterSpan);
+      });
+      heroTitleEl.appendChild(wordSpan);
+    });
+
+    // Animate letters with spring-like stagger (matching framer-motion spring)
+    const allLetters = heroTitleEl.querySelectorAll('.letter');
+    gsap.set(allLetters, { y: 100, opacity: 0 });
+    gsap.set(['.hero-tag', '.hero-subtitle', '.hero-ctas', '.hero-stat'], { opacity: 0, y: 30 });
+
+    const heroReveal = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    heroReveal
+      .to('.hero-tag', { y: 0, opacity: 1, duration: 0.8 }, 0.2)
+      .to(allLetters, {
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
+        stagger: 0.025,
+        ease: 'back.out(1.4)',
+      }, 0.4)
+      .to('.hero-subtitle', { y: 0, opacity: 1, duration: 0.8 }, 1.2)
+      .to('.hero-ctas', { y: 0, opacity: 1, duration: 0.8 }, 1.5)
+      .to('.hero-stat', { y: 0, opacity: 1, duration: 0.6, stagger: 0.1 }, 1.7);
+
+    // Section reveals
+    document.querySelectorAll('.reveal').forEach(el => {
+      // Skip hero elements - they're handled by the hero timeline
+      if (el.closest('.hero')) return;
+
+      gsap.fromTo(el,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none none',
+          }
+        }
+      );
+    });
+
+    // About images parallax
+    gsap.to('.about-img-main', {
+      y: -30,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.about',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 0.5,
+      }
+    });
+
+    gsap.to('.about-img-secondary', {
+      y: -15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.about',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 0.5,
+      }
+    });
+
+    // Set initial hidden state for stagger-animated elements (replaces .reveal CSS)
+    gsap.set('.restaurant-img-wrapper', { scale: 1.05, opacity: 0 });
+    gsap.set('.room-card', { y: 40, opacity: 0 });
+    gsap.set('.exp-card', { y: 40, opacity: 0 });
+    gsap.set('.testimonial-card', { y: 30, opacity: 0 });
+    gsap.set('.dish-item', { x: -20, opacity: 0 });
+
+    // Restaurant image reveal
+    gsap.fromTo('.restaurant-img-wrapper',
+      { scale: 1.05, opacity: 0 },
+      {
+        scale: 1, opacity: 1,
+        duration: 1.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.restaurant-img-wrapper',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        }
+      }
+    );
+
+    // Room cards stagger
+    gsap.fromTo('.room-card',
+      { y: 40, opacity: 0 },
+      {
+        y: 0, opacity: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.rooms-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        }
+      }
+    );
+
+    // Experience cards stagger
+    gsap.fromTo('.exp-card',
+      { y: 40, opacity: 0 },
+      {
+        y: 0, opacity: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.experience-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        }
+      }
+    );
+
+    // Testimonial cards stagger
+    gsap.fromTo('.testimonial-card',
+      { y: 30, opacity: 0 },
+      {
+        y: 0, opacity: 1,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.testimonials-track',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        }
+      }
+    );
+
+    // Dish items stagger
+    gsap.fromTo('.dish-item',
+      { x: -20, opacity: 0 },
+      {
+        x: 0, opacity: 1,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.restaurant-dishes',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        }
+      }
+    );
+
+    // Smooth scroll for anchor links (native)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          const top = target.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ========== ROOM BOOKING SYSTEM ==========
+    const roomData = {
+      'Sea View Suite': {
+        desc: 'Corner rooms on the second floor with unmatched panoramic views of the river inlet and Sussex Bay. The most spacious option with premium finishes and a private balcony area overlooking the water.',
+        img: 'https://placehold.co/400x267/162D52/FBF8F2?text=Sea+View+Suite',
+        amenities: ['Sea View', 'Air Conditioning', 'Ensuite Bathroom', 'Hot Water', 'Flat-screen TV', 'Mini Fridge', 'Mosquito Net', 'Balcony'],
+        lowSeason: 57.50,
+        highSeason: 69,
+      },
+      'Ocean Front Room': {
+        desc: 'Spacious rooms with private hot water bathrooms, flat-screen TV, and the sound of waves just below. Fall asleep to the rhythm of the Atlantic and wake to stunning ocean sunrises.',
+        img: 'https://placehold.co/400x267/1A6B6A/FBF8F2?text=Ocean+Room',
+        amenities: ['Ocean View', 'Mini Fridge', 'Flat-screen TV', 'Hot Water', 'Air Conditioning', 'Ensuite Bathroom', 'Mosquito Net', 'Ceiling Fan'],
+        lowSeason: 57.50,
+        highSeason: 69,
+      },
+      'Comfort Room': {
+        desc: 'Cozy rooms with ceiling fan, mosquito net, and everything you need for a peaceful tropical retreat. Perfect for travellers who want comfort without excess — simple, clean, and right on the water.',
+        img: 'https://placehold.co/400x267/0C1B33/FBF8F2?text=Comfort+Room',
+        amenities: ['Ceiling Fan', 'Mosquito Net', 'Hot Water', 'Ensuite Bathroom', 'Sea View', 'Towels Provided'],
+        lowSeason: 57.50,
+        highSeason: 69,
+      }
+    };
+
+    const amenityIcons = {
+      'Sea View': 'eye', 'Ocean View': 'waves', 'Air Conditioning': 'snowflake',
+      'Ensuite Bathroom': 'bath', 'Hot Water': 'droplets', 'Flat-screen TV': 'monitor',
+      'Mini Fridge': 'refrigerator', 'Mosquito Net': 'shield', 'Balcony': 'fence',
+      'Ceiling Fan': 'fan', 'Towels Provided': 'shirt'
+    };
+
+    let currentBooking = {};
+
+    function isHighSeason() {
+      const month = new Date().getMonth();
+      return month >= 10 || month <= 2; // Nov-Mar
+    }
+
+    function calcNights(checkin, checkout) {
+      if (!checkin || !checkout) return 0;
+      const d1 = new Date(checkin), d2 = new Date(checkout);
+      const diff = (d2 - d1) / (1000 * 60 * 60 * 24);
+      return diff > 0 ? diff : 0;
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function openRoomModal(roomName) {
+      const room = roomData[roomName];
+      if (!room) return;
+
+      const season = isHighSeason() ? 'highSeason' : 'lowSeason';
+      const rate = room[season];
+      const seasonLabel = isHighSeason() ? 'High Season' : 'Low Season';
+
+      const modal = document.getElementById('room-detail-modal');
+      modal.querySelector('.room-modal-hero img').src = room.img;
+      modal.querySelector('.room-modal-hero img').alt = roomName;
+      modal.querySelector('.room-modal-hero-title').textContent = roomName;
+      modal.querySelector('.room-modal-desc').textContent = room.desc;
+
+      // Amenities
+      const amenGrid = modal.querySelector('.room-modal-amenities');
+      amenGrid.innerHTML = room.amenities.map(a =>
+        `<div class="room-amenity"><i data-lucide="${amenityIcons[a] || 'check'}"></i>${a}</div>`
+      ).join('');
+
+      // Pricing
+      modal.querySelector('#rm-low-price').textContent = `$${room.lowSeason}`;
+      modal.querySelector('#rm-high-price').textContent = `$${room.highSeason}`;
+      modal.querySelector('#rm-current-season').textContent = `Current: ${seasonLabel} ($${rate}/night)`;
+
+      // Set min date to today
+      const today = new Date().toISOString().split('T')[0];
+      const checkinEl = modal.querySelector('#checkin-date');
+      const checkoutEl = modal.querySelector('#checkout-date');
+      checkinEl.min = today;
+      checkinEl.value = '';
+      checkoutEl.value = '';
+      checkoutEl.min = today;
+
+      // Reset displays
+      modal.querySelector('.nights-display').innerHTML = 'Select dates to calculate total';
+      modal.querySelector('.room-modal-total-value').textContent = '$0.00';
+      modal.querySelector('.btn-book').disabled = true;
+
+      currentBooking = { roomName, rate, seasonLabel };
+      openModal('room-detail-modal');
+      lucide.createIcons();
+    }
+
+    function updateBookingCalc() {
+      const modal = document.getElementById('room-detail-modal');
+      const checkin = modal.querySelector('#checkin-date').value;
+      const checkout = modal.querySelector('#checkout-date').value;
+      const nights = calcNights(checkin, checkout);
+
+      if (nights > 0) {
+        const total = nights * currentBooking.rate;
+        modal.querySelector('.nights-display').innerHTML =
+          `<strong>${nights} night${nights > 1 ? 's' : ''}</strong> × $${currentBooking.rate}/night`;
+        modal.querySelector('.room-modal-total-value').textContent = `$${total.toFixed(2)}`;
+        modal.querySelector('.btn-book').disabled = false;
+        currentBooking.checkin = checkin;
+        currentBooking.checkout = checkout;
+        currentBooking.nights = nights;
+        currentBooking.total = total;
+      } else {
+        modal.querySelector('.nights-display').innerHTML = 'Checkout must be after check-in';
+        modal.querySelector('.room-modal-total-value').textContent = '$0.00';
+        modal.querySelector('.btn-book').disabled = true;
+      }
+    }
+
+    function openSummary() {
+      closeModal('room-detail-modal');
+      const b = currentBooking;
+      const sm = document.getElementById('summary-modal');
+      sm.querySelector('#sum-room').textContent = b.roomName;
+      sm.querySelector('#sum-checkin').textContent = new Date(b.checkin).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+      sm.querySelector('#sum-checkout').textContent = new Date(b.checkout).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+      sm.querySelector('#sum-nights').textContent = `${b.nights} night${b.nights > 1 ? 's' : ''}`;
+      sm.querySelector('#sum-rate').textContent = `$${b.rate}/night (${b.seasonLabel})`;
+      sm.querySelector('#sum-total').textContent = `$${b.total.toFixed(2)}`;
+      setTimeout(() => openModal('summary-modal'), 100);
+    }
+
+    function goBackToRoom() {
+      closeModal('summary-modal');
+      setTimeout(() => openModal('room-detail-modal'), 100);
+    }
+
+    function proceedToCheckout() {
+      closeModal('summary-modal');
+      const b = currentBooking;
+      // Convert USD to SLE (approximate rate: 1 USD ≈ 25 SLE)
+      const amountSLE = Math.round(b.total * 25);
+      const checkoutUrl = `https://pay.flotme.ai/pay?amount=${amountSLE}`;
+      const cm = document.getElementById('checkout-modal');
+      cm.querySelector('.checkout-amount-display').textContent = `$${b.total.toFixed(2)} USD (~SLE ${amountSLE.toLocaleString()})`;
+      cm.querySelector('.checkout-iframe-wrap iframe').src = checkoutUrl;
+      setTimeout(() => openModal('checkout-modal'), 100);
+    }
+
+    // Event: room card clicks
+    document.querySelectorAll('.room-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const name = card.querySelector('.room-card-title').textContent;
+        openRoomModal(name);
+      });
+    });
+
+    // Event: date inputs
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkinEl = document.getElementById('checkin-date');
+      const checkoutEl = document.getElementById('checkout-date');
+      if (checkinEl && checkoutEl) {
+        checkinEl.addEventListener('change', () => {
+          // Set checkout min to day after checkin
+          if (checkinEl.value) {
+            const next = new Date(checkinEl.value);
+            next.setDate(next.getDate() + 1);
+            checkoutEl.min = next.toISOString().split('T')[0];
+            if (checkoutEl.value && checkoutEl.value <= checkinEl.value) {
+              checkoutEl.value = '';
+            }
+          }
+          updateBookingCalc();
+        });
+        checkoutEl.addEventListener('change', updateBookingCalc);
+      }
+    });
+
+    // Close modals on overlay click or Escape
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+          // Clear checkout iframe when closing
+          const iframe = overlay.querySelector('iframe');
+          if (iframe) iframe.src = '';
+        }
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(m => {
+          m.classList.remove('active');
+          const iframe = m.querySelector('iframe');
+          if (iframe) iframe.src = '';
+        });
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+  <!-- ====== ROOM DETAIL MODAL ====== -->
+  <div class="modal-overlay" id="room-detail-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('room-detail-modal')" aria-label="Close">&times;</button>
+      <div class="room-modal-hero">
+        <img src="" alt="" loading="lazy">
+        <div class="room-modal-hero-title"></div>
+      </div>
+      <div class="room-modal-body">
+        <p class="room-modal-desc"></p>
+
+        <div class="room-modal-amenities"></div>
+
+        <div class="room-modal-pricing">
+          <div class="room-modal-price-item">
+            <div class="room-modal-price-label">Low Season</div>
+            <div class="room-modal-price-value"><span id="rm-low-price"></span> <small>/night</small></div>
+          </div>
+          <div class="room-modal-price-item">
+            <div class="room-modal-price-label">High Season</div>
+            <div class="room-modal-price-value"><span id="rm-high-price"></span> <small>/night</small></div>
+          </div>
+        </div>
+        <p id="rm-current-season" style="font-size:0.8rem;color:var(--teal);margin:-1rem 0 1.5rem;font-weight:500;"></p>
+
+        <div class="room-modal-dates">
+          <div class="room-modal-dates-title">Choose Your Stay</div>
+          <div class="room-modal-dates-grid">
+            <div class="date-field">
+              <label for="checkin-date">Check-in</label>
+              <input type="date" id="checkin-date">
+            </div>
+            <div class="date-field">
+              <label for="checkout-date">Check-out</label>
+              <input type="date" id="checkout-date">
+            </div>
+          </div>
+          <div class="nights-display">Select dates to calculate total</div>
+        </div>
+
+        <div class="room-modal-total">
+          <div class="room-modal-total-label">Total</div>
+          <div class="room-modal-total-value">$0.00</div>
+        </div>
+
+        <button class="btn-book" onclick="openSummary()" disabled>Book This Room</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== BOOKING SUMMARY MODAL ====== -->
+  <div class="modal-overlay" id="summary-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('summary-modal')" aria-label="Close">&times;</button>
+      <div class="summary-modal-body">
+        <h2 class="summary-title">Booking Summary</h2>
+        <p class="summary-subtitle">Please review your reservation details before proceeding to payment.</p>
+
+        <div class="summary-row">
+          <span class="summary-row-label">Room</span>
+          <span class="summary-row-value" id="sum-room"></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Check-in</span>
+          <span class="summary-row-value" id="sum-checkin"></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Check-out</span>
+          <span class="summary-row-value" id="sum-checkout"></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Duration</span>
+          <span class="summary-row-value" id="sum-nights"></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Rate</span>
+          <span class="summary-row-value" id="sum-rate"></span>
+        </div>
+
+        <div class="summary-total-row">
+          <span class="summary-total-label">Total</span>
+          <span class="summary-total-value" id="sum-total"></span>
+        </div>
+
+        <div class="summary-actions">
+          <button class="btn-back" onclick="goBackToRoom()">Go Back</button>
+          <button class="btn-checkout" onclick="proceedToCheckout()">Proceed to Payment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== FLOTME CHECKOUT MODAL ====== -->
+  <div class="modal-overlay checkout-modal" id="checkout-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('checkout-modal'); document.querySelector('#checkout-modal iframe').src='';" aria-label="Close">&times;</button>
+      <div class="checkout-header">
+        <span class="checkout-brand">Franco Resort</span>
+        <span class="checkout-amount-display" style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);"></span>
+        <span class="checkout-secured">Secured by Flot</span>
+      </div>
+      <div class="checkout-iframe-wrap">
+        <iframe src="" title="Flot Checkout" loading="lazy" allow="payment"></iframe>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
