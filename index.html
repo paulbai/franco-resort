@@ -2148,8 +2148,8 @@
       width: 100%;
       padding: 1rem;
       border: none;
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--blue);
+      color: var(--white);
       font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 600;
@@ -2158,9 +2158,9 @@
       cursor: pointer;
       transition: background 0.2s ease, transform 0.15s ease;
     }
-    .btn-book:hover { background: #d4a94a; transform: translateY(-1px); }
+    .btn-book:hover { background: var(--blue-deep); transform: translateY(-1px); }
     .btn-book:active { transform: translateY(0); }
-    .btn-book:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+    .btn-book:focus-visible { outline: 2px solid var(--blue-sky); outline-offset: 2px; }
     .btn-book:disabled {
       opacity: 0.4;
       cursor: not-allowed;
@@ -2260,40 +2260,245 @@
     .btn-checkout:active { transform: translateY(0); }
     .btn-checkout:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
-    /* Checkout Modal */
-    .checkout-modal .modal-content {
-      max-width: 500px;
-      background: #1a1a1a;
+    /* Guest form inside room modal */
+    .room-modal-guest {
+      margin-bottom: 1.5rem;
     }
-    .checkout-header {
-      padding: 1.5rem 2rem;
-      background: var(--navy);
+    .guest-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .date-field-full { grid-column: 1 / -1; }
+    .label-optional {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 400;
+      font-style: italic;
+    }
+    .guest-form-error {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #DC2626;
+      min-height: 1.2em;
+    }
+
+    /* Summary groups */
+    .summary-group-title {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    .summary-fineprint {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Confirmation success modal */
+    .confirm-check {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-bright) 100%);
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(59,130,246,0.35);
+      animation: popIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .checkout-brand {
+    .confirm-check i {
+      width: 32px;
+      height: 32px;
+      color: var(--white);
+      stroke-width: 3;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.4); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .confirm-summary {
+      background: var(--blue-ice);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      text-align: left;
+      border-left: 3px solid var(--blue);
+    }
+    .confirm-summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .confirm-summary-row + .confirm-summary-row {
+      border-top: 1px solid rgba(10,37,64,0.08);
+    }
+    .confirm-summary-row strong {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* My Bookings list */
+    .bookings-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .booking-card {
+      padding: 1.25rem 1.5rem;
+      background: var(--white);
+      border: 1px solid rgba(10,37,64,0.08);
+      border-left: 3px solid var(--blue);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+    }
+    .booking-card:hover {
+      border-color: rgba(37,99,235,0.25);
+      box-shadow: 0 6px 20px rgba(37,99,235,0.08);
+    }
+    .booking-card.paid {
+      border-left-color: #10B981;
+    }
+    .booking-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .booking-ref {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .booking-ref-id { color: var(--blue); }
+    .booking-room {
       font-family: var(--font-display);
       font-size: 1.2rem;
-      color: var(--gold);
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
     }
-    .checkout-secured {
+    .booking-dates {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+    .booking-guest {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .booking-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
       font-size: 0.7rem;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
+      font-weight: 600;
       letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      margin-top: 0.1rem;
     }
-    .checkout-iframe-wrap {
-      width: 100%;
-      height: 600px;
+    .booking-status-pending {
+      color: #B45309;
+      background: #FEF3C7;
+    }
+    .booking-status-paid {
+      color: #047857;
+      background: #D1FAE5;
+    }
+    .booking-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      min-width: 130px;
+    }
+    .booking-total {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--blue);
+    }
+    .booking-pay-btn {
+      padding: 0.6rem 1rem;
       border: none;
-      background: #1a1a1a;
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-spring);
     }
-    .checkout-iframe-wrap iframe {
-      width: 100%;
-      height: 100%;
+    .booking-pay-btn:hover {
+      background: var(--blue-deep);
+      transform: translateY(-1px);
+    }
+    .booking-pay-btn:focus-visible {
+      outline: 2px solid var(--blue-sky);
+      outline-offset: 2px;
+    }
+    .booking-remove-btn {
+      background: transparent;
       border: none;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      transition: color var(--duration-fast) var(--ease-out);
     }
+    .booking-remove-btn:hover { color: #DC2626; }
+    .bookings-empty {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Nav My Bookings counter */
+    .nav-bookings-link {
+      position: relative;
+    }
+    .nav-bookings-badge {
+      position: absolute;
+      top: -8px;
+      right: -14px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 9px;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0;
+    }
+    .nav-bookings-badge[hidden] { display: none; }
 
     /* Modal responsiveness */
     @media (max-width: 600px) {
@@ -2303,13 +2508,14 @@
       .room-modal-body { padding: 1.25rem; }
       .room-modal-amenities { grid-template-columns: 1fr; }
       .room-modal-dates-grid { grid-template-columns: 1fr; }
+      .guest-fields { grid-template-columns: 1fr; }
+      .booking-card { grid-template-columns: 1fr; }
+      .booking-actions { align-items: flex-start; min-width: 0; flex-direction: row; gap: 0.5rem; flex-wrap: wrap; }
       .room-modal-pricing { flex-direction: column; gap: 0.75rem; }
       .summary-modal-body { padding: 1.5rem 1.25rem; }
       .summary-actions { flex-direction: column; }
       .btn-back, .btn-checkout { flex: none; }
       .summary-title { font-size: 1.4rem; }
-      .checkout-modal .modal-content { max-width: 100%; }
-      .checkout-iframe-wrap { height: 500px; }
     }
   </style>
 </head>
@@ -2331,6 +2537,12 @@
         <li><a href="#restaurant">Menu</a></li>
         <li><a href="#diving">Diving</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="#" class="nav-bookings-link" onclick="openMyBookings(); return false;">
+            My Bookings
+            <span class="nav-bookings-badge" id="nav-bookings-badge" hidden>0</span>
+          </a>
+        </li>
         <li><a href="#rooms" class="nav-cta">Book Your Stay</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -3223,6 +3435,37 @@
       document.body.style.overflow = '';
     }
 
+    // ========== BOOKINGS STORAGE ==========
+    const BOOKINGS_KEY = 'franco_bookings_v1';
+    const USD_TO_SLE = 25; // approximate conversion rate
+    const FLOT_CHECKOUT_URL = 'https://pay.flotme.ai/francodivingcenter';
+
+    function loadBookings() {
+      try {
+        const raw = localStorage.getItem(BOOKINGS_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch { return []; }
+    }
+    function saveBookings(list) {
+      try { localStorage.setItem(BOOKINGS_KEY, JSON.stringify(list)); }
+      catch (e) { console.warn('Unable to persist bookings', e); }
+    }
+    function generateBookingRef() {
+      const rand = Math.random().toString(36).slice(2, 7).toUpperCase();
+      return `FDC-${rand}`;
+    }
+    function updateBookingsBadge() {
+      const badge = document.getElementById('nav-bookings-badge');
+      if (!badge) return;
+      const pending = loadBookings().filter(b => b.status !== 'paid').length;
+      if (pending > 0) {
+        badge.textContent = String(pending);
+        badge.hidden = false;
+      } else {
+        badge.hidden = true;
+      }
+    }
+
     function openRoomModal(roomName) {
       const room = roomData[roomName];
       if (!room) return;
@@ -3248,7 +3491,7 @@
       modal.querySelector('#rm-high-price').textContent = `$${room.highSeason}`;
       modal.querySelector('#rm-current-season').textContent = `Current: ${seasonLabel} ($${rate}/night)`;
 
-      // Set min date to today
+      // Reset dates
       const today = new Date().toISOString().split('T')[0];
       const checkinEl = modal.querySelector('#checkin-date');
       const checkoutEl = modal.querySelector('#checkout-date');
@@ -3256,6 +3499,12 @@
       checkinEl.value = '';
       checkoutEl.value = '';
       checkoutEl.min = today;
+
+      // Reset guest inputs & errors
+      modal.querySelector('#guest-name').value = '';
+      modal.querySelector('#guest-phone').value = '';
+      modal.querySelector('#guest-email').value = '';
+      modal.querySelector('#guest-error').textContent = '';
 
       // Reset displays
       modal.querySelector('.nights-display').innerHTML = 'Select dates to calculate total';
@@ -3284,22 +3533,63 @@
         currentBooking.nights = nights;
         currentBooking.total = total;
       } else {
-        modal.querySelector('.nights-display').innerHTML = 'Checkout must be after check-in';
+        modal.querySelector('.nights-display').innerHTML = checkin && checkout
+          ? 'Checkout must be after check-in'
+          : 'Select dates to calculate total';
         modal.querySelector('.room-modal-total-value').textContent = '$0.00';
         modal.querySelector('.btn-book').disabled = true;
       }
     }
 
+    function validateGuestInputs() {
+      const modal = document.getElementById('room-detail-modal');
+      const name = modal.querySelector('#guest-name').value.trim();
+      const phone = modal.querySelector('#guest-phone').value.trim();
+      const email = modal.querySelector('#guest-email').value.trim();
+      const errorEl = modal.querySelector('#guest-error');
+
+      if (name.length < 2) {
+        errorEl.textContent = 'Please enter your full name.';
+        modal.querySelector('#guest-name').focus();
+        return null;
+      }
+      // Basic phone check: at least 7 digits
+      const digits = phone.replace(/\D/g, '');
+      if (digits.length < 7) {
+        errorEl.textContent = 'Please enter a valid phone number.';
+        modal.querySelector('#guest-phone').focus();
+        return null;
+      }
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address, or leave it blank.';
+        modal.querySelector('#guest-email').focus();
+        return null;
+      }
+      errorEl.textContent = '';
+      return { name, phone, email };
+    }
+
     function openSummary() {
-      closeModal('room-detail-modal');
+      const guest = validateGuestInputs();
+      if (!guest) return;
+
       const b = currentBooking;
+      Object.assign(b, guest);
+
+      closeModal('room-detail-modal');
+
       const sm = document.getElementById('summary-modal');
       sm.querySelector('#sum-room').textContent = b.roomName;
-      sm.querySelector('#sum-checkin').textContent = new Date(b.checkin).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
-      sm.querySelector('#sum-checkout').textContent = new Date(b.checkout).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+      sm.querySelector('#sum-checkin').textContent = formatDate(b.checkin);
+      sm.querySelector('#sum-checkout').textContent = formatDate(b.checkout);
       sm.querySelector('#sum-nights').textContent = `${b.nights} night${b.nights > 1 ? 's' : ''}`;
       sm.querySelector('#sum-rate').textContent = `$${b.rate}/night (${b.seasonLabel})`;
       sm.querySelector('#sum-total').textContent = `$${b.total.toFixed(2)}`;
+      sm.querySelector('#sum-name').textContent = b.name;
+      sm.querySelector('#sum-phone').textContent = b.phone;
+      sm.querySelector('#sum-email').textContent = b.email || '—';
+      sm.querySelector('#sum-email-row').style.display = b.email ? '' : 'none';
+
       setTimeout(() => openModal('summary-modal'), 100);
     }
 
@@ -3308,17 +3598,165 @@
       setTimeout(() => openModal('room-detail-modal'), 100);
     }
 
-    function proceedToCheckout() {
-      closeModal('summary-modal');
-      const b = currentBooking;
-      // Convert USD to SLE (approximate rate: 1 USD ≈ 25 SLE)
-      const amountSLE = Math.round(b.total * 25);
-      const checkoutUrl = `https://pay.flotme.ai/pay?amount=${amountSLE}`;
-      const cm = document.getElementById('checkout-modal');
-      cm.querySelector('.checkout-amount-display').textContent = `$${b.total.toFixed(2)} USD (~SLE ${amountSLE.toLocaleString()})`;
-      cm.querySelector('.checkout-iframe-wrap iframe').src = checkoutUrl;
-      setTimeout(() => openModal('checkout-modal'), 100);
+    function formatDate(iso) {
+      return new Date(iso).toLocaleDateString('en-US', {
+        weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
+      });
     }
+
+    function confirmBooking() {
+      const b = currentBooking;
+      const ref = generateBookingRef();
+      const amountSLE = Math.round(b.total * USD_TO_SLE);
+
+      const booking = {
+        id: ref,
+        roomName: b.roomName,
+        rate: b.rate,
+        seasonLabel: b.seasonLabel,
+        checkin: b.checkin,
+        checkout: b.checkout,
+        nights: b.nights,
+        totalUSD: b.total,
+        amountSLE,
+        name: b.name,
+        phone: b.phone,
+        email: b.email || '',
+        status: 'pending',
+        createdAt: new Date().toISOString()
+      };
+
+      const list = loadBookings();
+      list.unshift(booking);
+      saveBookings(list);
+      updateBookingsBadge();
+      window.__lastBookingId = ref;
+
+      closeModal('summary-modal');
+
+      // Fill confirmation modal
+      const cm = document.getElementById('confirm-modal');
+      cm.querySelector('#confirm-name').textContent = b.name.split(' ')[0];
+      cm.querySelector('#confirm-ref').textContent = ref;
+      cm.querySelector('#confirm-room').textContent = b.roomName;
+      cm.querySelector('#confirm-dates').textContent = `${formatDate(b.checkin)} → ${formatDate(b.checkout)} · ${b.nights}n`;
+      cm.querySelector('#confirm-total').textContent = `$${b.total.toFixed(2)} (~SLE ${amountSLE.toLocaleString()})`;
+
+      setTimeout(() => {
+        openModal('confirm-modal');
+        lucide.createIcons();
+      }, 120);
+    }
+
+    // ========== FLOT PAYMENT POPUP ==========
+    function payBooking(bookingId) {
+      const list = loadBookings();
+      const booking = list.find(b => b.id === bookingId);
+      if (!booking) {
+        alert('Booking not found.');
+        return;
+      }
+
+      const url = `${FLOT_CHECKOUT_URL}?amount=${booking.amountSLE}`;
+      const w = 440, h = 740;
+      const left = Math.round(window.screenX + (window.outerWidth - w) / 2);
+      const top = Math.round(window.screenY + (window.outerHeight - h) / 2);
+      const features = `popup=yes,width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes,noopener=yes`;
+
+      const popup = window.open(url, 'FlotCheckout', features);
+
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        // Popup blocked — fall back to new tab
+        window.open(url, '_blank', 'noopener');
+        return;
+      }
+
+      // Mark as paid after the popup has been closed for a moment (best-effort UX hint)
+      const poll = setInterval(() => {
+        if (popup.closed) {
+          clearInterval(poll);
+          // We can't confirm payment success from the popup, so ask the user
+          setTimeout(() => {
+            const didPay = confirm('Did your payment complete successfully? Click OK to mark this booking as paid.');
+            if (didPay) {
+              const fresh = loadBookings();
+              const idx = fresh.findIndex(b => b.id === bookingId);
+              if (idx !== -1) {
+                fresh[idx].status = 'paid';
+                fresh[idx].paidAt = new Date().toISOString();
+                saveBookings(fresh);
+                updateBookingsBadge();
+                renderBookings();
+              }
+            }
+          }, 300);
+        }
+      }, 800);
+    }
+
+    // ========== MY BOOKINGS MODAL ==========
+    function openMyBookings() {
+      // If any other modal is open, close it first
+      document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+      renderBookings();
+      openModal('bookings-modal');
+      lucide.createIcons();
+    }
+
+    function renderBookings() {
+      const container = document.getElementById('bookings-list');
+      const empty = document.getElementById('bookings-empty');
+      const list = loadBookings();
+
+      if (!list.length) {
+        container.innerHTML = '';
+        empty.hidden = false;
+        return;
+      }
+      empty.hidden = true;
+
+      container.innerHTML = list.map(b => {
+        const paid = b.status === 'paid';
+        return `
+          <article class="booking-card ${paid ? 'paid' : ''}" data-id="${b.id}">
+            <div class="booking-info">
+              <span class="booking-ref">Reference <span class="booking-ref-id">${b.id}</span></span>
+              <span class="booking-room">${b.roomName}</span>
+              <span class="booking-dates">${formatDate(b.checkin)} → ${formatDate(b.checkout)} · ${b.nights} night${b.nights > 1 ? 's' : ''}</span>
+              <span class="booking-guest">${escapeHtml(b.name)} &middot; ${escapeHtml(b.phone)}</span>
+              <span class="booking-status ${paid ? 'booking-status-paid' : 'booking-status-pending'}">
+                ${paid ? 'Paid' : 'Awaiting payment'}
+              </span>
+            </div>
+            <div class="booking-actions">
+              <span class="booking-total">$${b.totalUSD.toFixed(2)}</span>
+              ${paid
+                ? '<span style="font-size:0.7rem; color:var(--text-muted);">Completed</span>'
+                : `<button class="booking-pay-btn" onclick="payBooking('${b.id}')">Pay with Flot</button>`
+              }
+              <button class="booking-remove-btn" onclick="removeBooking('${b.id}')" aria-label="Remove booking">Remove</button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function removeBooking(id) {
+      if (!confirm('Remove this booking? This cannot be undone.')) return;
+      const list = loadBookings().filter(b => b.id !== id);
+      saveBookings(list);
+      updateBookingsBadge();
+      renderBookings();
+    }
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    // Initialise badge on load
+    updateBookingsBadge();
 
     // ========== MENU TABS ==========
     document.querySelectorAll('.menu-tab').forEach(tab => {
@@ -3370,9 +3808,6 @@
         if (e.target === overlay) {
           overlay.classList.remove('active');
           document.body.style.overflow = '';
-          // Clear checkout iframe when closing
-          const iframe = overlay.querySelector('iframe');
-          if (iframe) iframe.src = '';
         }
       });
     });
@@ -3380,8 +3815,6 @@
       if (e.key === 'Escape') {
         document.querySelectorAll('.modal-overlay.active').forEach(m => {
           m.classList.remove('active');
-          const iframe = m.querySelector('iframe');
-          if (iframe) iframe.src = '';
         });
         document.body.style.overflow = '';
       }
@@ -3418,14 +3851,33 @@
           <div class="room-modal-dates-grid">
             <div class="date-field">
               <label for="checkin-date">Check-in</label>
-              <input type="date" id="checkin-date">
+              <input type="date" id="checkin-date" required>
             </div>
             <div class="date-field">
               <label for="checkout-date">Check-out</label>
-              <input type="date" id="checkout-date">
+              <input type="date" id="checkout-date" required>
             </div>
           </div>
           <div class="nights-display">Select dates to calculate total</div>
+        </div>
+
+        <div class="room-modal-guest">
+          <div class="room-modal-dates-title">Your Details</div>
+          <div class="guest-fields">
+            <div class="date-field">
+              <label for="guest-name">Full Name</label>
+              <input type="text" id="guest-name" placeholder="Jane Smith" autocomplete="name" required>
+            </div>
+            <div class="date-field">
+              <label for="guest-phone">Phone</label>
+              <input type="tel" id="guest-phone" placeholder="+232 76 000 000" autocomplete="tel" required>
+            </div>
+            <div class="date-field date-field-full">
+              <label for="guest-email">Email <span class="label-optional">(optional)</span></label>
+              <input type="email" id="guest-email" placeholder="you@example.com" autocomplete="email">
+            </div>
+          </div>
+          <p class="guest-form-error" id="guest-error" role="alert" aria-live="polite"></p>
         </div>
 
         <div class="room-modal-total">
@@ -3433,7 +3885,7 @@
           <div class="room-modal-total-value">$0.00</div>
         </div>
 
-        <button class="btn-book" onclick="openSummary()" disabled>Book This Room</button>
+        <button class="btn-book" onclick="openSummary()" disabled>Review Booking</button>
       </div>
     </div>
   </div>
@@ -3444,8 +3896,9 @@
       <button class="modal-close" onclick="closeModal('summary-modal')" aria-label="Close">&times;</button>
       <div class="summary-modal-body">
         <h2 class="summary-title">Booking Summary</h2>
-        <p class="summary-subtitle">Please review your reservation details before proceeding to payment.</p>
+        <p class="summary-subtitle">Please review your reservation details before confirming.</p>
 
+        <div class="summary-group-title">Reservation</div>
         <div class="summary-row">
           <span class="summary-row-label">Room</span>
           <span class="summary-row-value" id="sum-room"></span>
@@ -3467,6 +3920,20 @@
           <span class="summary-row-value" id="sum-rate"></span>
         </div>
 
+        <div class="summary-group-title" style="margin-top: 1.5rem;">Guest</div>
+        <div class="summary-row">
+          <span class="summary-row-label">Name</span>
+          <span class="summary-row-value" id="sum-name"></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Phone</span>
+          <span class="summary-row-value" id="sum-phone"></span>
+        </div>
+        <div class="summary-row" id="sum-email-row">
+          <span class="summary-row-label">Email</span>
+          <span class="summary-row-value" id="sum-email"></span>
+        </div>
+
         <div class="summary-total-row">
           <span class="summary-total-label">Total</span>
           <span class="summary-total-value" id="sum-total"></span>
@@ -3474,23 +3941,53 @@
 
         <div class="summary-actions">
           <button class="btn-back" onclick="goBackToRoom()">Go Back</button>
-          <button class="btn-checkout" onclick="proceedToCheckout()">Proceed to Payment</button>
+          <button class="btn-checkout" onclick="confirmBooking()">Confirm Booking</button>
         </div>
+        <p class="summary-fineprint">Confirming reserves the room. You can pay securely with Flot at any time from your bookings.</p>
       </div>
     </div>
   </div>
 
-  <!-- ====== FLOTME CHECKOUT MODAL ====== -->
-  <div class="modal-overlay checkout-modal" id="checkout-modal">
+  <!-- ====== BOOKING CONFIRMATION / SUCCESS MODAL ====== -->
+  <div class="modal-overlay" id="confirm-modal">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('checkout-modal'); document.querySelector('#checkout-modal iframe').src='';" aria-label="Close">&times;</button>
-      <div class="checkout-header">
-        <span class="checkout-brand">Franco Diving Center</span>
-        <span class="checkout-amount-display" style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);"></span>
-        <span class="checkout-secured">Secured by Flot</span>
+      <button class="modal-close" onclick="closeModal('confirm-modal')" aria-label="Close">&times;</button>
+      <div class="summary-modal-body" style="text-align:center;">
+        <div class="confirm-check" aria-hidden="true">
+          <i data-lucide="check"></i>
+        </div>
+        <h2 class="summary-title" style="margin-top:1rem;">Booking Confirmed</h2>
+        <p class="summary-subtitle">
+          We've saved your reservation, <strong id="confirm-name"></strong>.<br>
+          Reference <strong id="confirm-ref" style="color:var(--blue);"></strong>.
+        </p>
+
+        <div class="confirm-summary">
+          <div class="confirm-summary-row"><span>Room</span><strong id="confirm-room"></strong></div>
+          <div class="confirm-summary-row"><span>Stay</span><strong id="confirm-dates"></strong></div>
+          <div class="confirm-summary-row"><span>Total Due</span><strong id="confirm-total" style="color:var(--blue);"></strong></div>
+        </div>
+
+        <div class="summary-actions" style="margin-top: 1.75rem;">
+          <button class="btn-back" onclick="closeModal('confirm-modal'); openMyBookings();">View My Bookings</button>
+          <button class="btn-checkout" onclick="payBooking(window.__lastBookingId)">Pay Now with Flot</button>
+        </div>
+        <p class="summary-fineprint">You can also pay later &mdash; find your booking anytime under <strong>My Bookings</strong> in the menu.</p>
       </div>
-      <div class="checkout-iframe-wrap">
-        <iframe src="" title="Flot Checkout" loading="lazy" allow="payment"></iframe>
+    </div>
+  </div>
+
+  <!-- ====== MY BOOKINGS MODAL ====== -->
+  <div class="modal-overlay" id="bookings-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('bookings-modal')" aria-label="Close">&times;</button>
+      <div class="summary-modal-body">
+        <h2 class="summary-title">My Bookings</h2>
+        <p class="summary-subtitle">All reservations saved on this device. Pay securely when you're ready.</p>
+        <div class="bookings-list" id="bookings-list"></div>
+        <p class="bookings-empty" id="bookings-empty" hidden>
+          You haven't booked yet. Pick a room to get started.
+        </p>
       </div>
     </div>
   </div>
