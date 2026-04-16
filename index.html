@@ -8,13 +8,13 @@
   <meta name="keywords" content="Franco Resort, Florence's Resort, beach resort Freetown, Sussex Sierra Leone hotel, seafood restaurant Freetown, beachfront accommodation Sierra Leone">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
-  <link rel="apple-touch-icon" href="images/logo.svg">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Franco Resort — Beachfront Retreat in Sussex, Sierra Leone">
   <meta property="og:description" content="Family-owned beachfront escape in Sussex, Freetown — sea-view rooms, world-class seafood, private beach, and diving.">
-  <meta property="og:image" content="images/logo.svg">
+  <meta property="og:image" content="images/logo.png">
   <meta property="og:type" content="website">
 
   <!-- Fonts — trimmed to essential weights only for low bandwidth -->
@@ -208,25 +208,19 @@
     }
 
     .nav-logo-img {
-      width: 38px;
-      height: auto;
-      /* Invert black logo to white on dark nav */
-      filter: brightness(0) invert(1);
+      width: auto;
+      height: 56px;
       flex-shrink: 0;
-      transition: filter var(--duration-med) var(--ease-out), transform var(--duration-fast) var(--ease-spring);
+      transition: transform var(--duration-fast) var(--ease-spring), filter var(--duration-med) var(--ease-out);
     }
 
     .nav-logo:hover .nav-logo-img {
-      /* Tint toward gold on hover */
-      filter: brightness(0) saturate(100%) invert(71%) sepia(36%) saturate(657%) hue-rotate(2deg) brightness(90%) contrast(88%);
-      transform: scale(1.05);
+      transform: scale(1.04);
+      filter: drop-shadow(0 4px 12px rgba(196,154,60,0.35));
     }
 
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+    /* Text wordmark hidden since logo has built-in brand text */
+    .nav-logo-text { display: none; }
 
     .nav-logo-name {
       font-family: var(--font-accent);
@@ -1286,18 +1280,14 @@
     }
 
     .footer-brand-img {
-      width: 36px;
-      height: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
+      width: auto;
+      height: 52px;
       flex-shrink: 0;
+      opacity: 0.95;
     }
 
-    .footer-brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
+    /* Footer text wordmark hidden since logo has built-in brand text */
+    .footer-brand-text { display: none; }
 
     .footer-brand-name {
       font-family: var(--font-accent);
@@ -1367,6 +1357,8 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
+      .nav-logo-img { height: 48px; }
+      .footer-brand-img { height: 46px; }
 
       .nav-links.open {
         display: flex;
@@ -1537,7 +1529,7 @@
 
       .nav-logo-name { font-size: 1.25rem; }
       .nav-logo-tagline { font-size: 0.5rem; }
-      .nav-logo-img { width: 32px; }
+      .nav-logo-img { height: 46px; }
       .nav-logo { gap: 0.5rem; }
       .nav-inner { padding: 0 1rem; }
 
@@ -2029,7 +2021,7 @@
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="#" class="nav-logo" aria-label="Franco Resort - Home">
-        <img src="images/logo.svg" alt="" class="nav-logo-img" width="38" height="52" aria-hidden="true">
+        <img src="images/logo.png" alt="" class="nav-logo-img" width="38" height="52" aria-hidden="true">
         <span class="nav-logo-text">
           <span class="nav-logo-name">Franco Resort</span>
           <span class="nav-logo-tagline">Sussex &middot; Sierra Leone</span>
@@ -2431,7 +2423,7 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <img src="images/logo.svg" alt="" class="footer-brand-img" width="36" height="49" aria-hidden="true" loading="lazy">
+          <img src="images/logo.png" alt="" class="footer-brand-img" width="36" height="49" aria-hidden="true" loading="lazy">
           <div class="footer-brand-text">
             <span class="footer-brand-name">Franco Resort</span>
             <span class="footer-brand-sub">Sussex &middot; Sierra Leone</span>
