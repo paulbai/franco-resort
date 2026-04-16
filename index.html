@@ -7,6 +7,16 @@
   <meta name="description" content="Franco Resort is a family-owned beachfront escape in Sussex, Freetown — offering sea-view rooms, world-class fresh seafood, a private beach, and diving. Book your stay today.">
   <meta name="keywords" content="Franco Resort, Florence's Resort, beach resort Freetown, Sussex Sierra Leone hotel, seafood restaurant Freetown, beachfront accommodation Sierra Leone">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="apple-touch-icon" href="images/logo.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Franco Resort — Beachfront Retreat in Sussex, Sierra Leone">
+  <meta property="og:description" content="Family-owned beachfront escape in Sussex, Freetown — sea-view rooms, world-class seafood, private beach, and diving.">
+  <meta property="og:image" content="images/logo.svg">
+  <meta property="og:type" content="website">
+
   <!-- Fonts — trimmed to essential weights only for low bandwidth -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -192,8 +202,30 @@
 
     .nav-logo {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
       line-height: 1;
+    }
+
+    .nav-logo-img {
+      width: 38px;
+      height: auto;
+      /* Invert black logo to white on dark nav */
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+      transition: filter var(--duration-med) var(--ease-out), transform var(--duration-fast) var(--ease-spring);
+    }
+
+    .nav-logo:hover .nav-logo-img {
+      /* Tint toward gold on hover */
+      filter: brightness(0) saturate(100%) invert(71%) sepia(36%) saturate(657%) hue-rotate(2deg) brightness(90%) contrast(88%);
+      transform: scale(1.05);
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .nav-logo-name {
@@ -1249,6 +1281,20 @@
 
     .footer-brand {
       display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-brand-img {
+      width: 36px;
+      height: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+
+    .footer-brand-text {
+      display: flex;
       flex-direction: column;
       gap: 0.25rem;
     }
@@ -1491,6 +1537,8 @@
 
       .nav-logo-name { font-size: 1.25rem; }
       .nav-logo-tagline { font-size: 0.5rem; }
+      .nav-logo-img { width: 32px; }
+      .nav-logo { gap: 0.5rem; }
       .nav-inner { padding: 0 1rem; }
 
       .section-heading { font-size: 1.65rem; }
@@ -1981,8 +2029,11 @@
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="#" class="nav-logo" aria-label="Franco Resort - Home">
-        <span class="nav-logo-name">Franco Resort</span>
-        <span class="nav-logo-tagline">Sussex &middot; Sierra Leone</span>
+        <img src="images/logo.svg" alt="" class="nav-logo-img" width="38" height="52" aria-hidden="true">
+        <span class="nav-logo-text">
+          <span class="nav-logo-name">Franco Resort</span>
+          <span class="nav-logo-tagline">Sussex &middot; Sierra Leone</span>
+        </span>
       </a>
       <ul class="nav-links">
         <li><a href="#about">Our Story</a></li>
@@ -2380,8 +2431,11 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <span class="footer-brand-name">Franco Resort</span>
-          <span class="footer-brand-sub">Sussex &middot; Sierra Leone</span>
+          <img src="images/logo.svg" alt="" class="footer-brand-img" width="36" height="49" aria-hidden="true" loading="lazy">
+          <div class="footer-brand-text">
+            <span class="footer-brand-name">Franco Resort</span>
+            <span class="footer-brand-sub">Sussex &middot; Sierra Leone</span>
+          </div>
         </div>
         <p class="footer-copy">&copy; 2026 Franco Resort. All rights reserved.</p>
         <div class="footer-socials">
