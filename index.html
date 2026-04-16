@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Franco Resort — Beachfront Retreat in Sussex, Sierra Leone</title>
-  <meta name="description" content="Franco Resort is a family-owned beachfront escape in Sussex, Freetown — offering sea-view rooms, world-class fresh seafood, a private beach, and diving. Book your stay today.">
-  <meta name="keywords" content="Franco Resort, Florence's Resort, beach resort Freetown, Sussex Sierra Leone hotel, seafood restaurant Freetown, beachfront accommodation Sierra Leone">
+  <title>Franco Diving Center — Hospitality, Restaurant & Diving · Sussex, Sierra Leone</title>
+  <meta name="description" content="Since 1995, Franco Diving Center in Sussex Village, Freetown offers sea-view rooms, authentic Italian-seafood dining, and PADI-trained diving experiences on the Atlantic coast of Sierra Leone.">
+  <meta name="keywords" content="Franco Diving Center, Florence Resort, Sussex Beach Freetown, scuba diving Sierra Leone, Italian seafood restaurant Freetown, beach hotel Sierra Leone">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="apple-touch-icon" href="images/logo.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Franco Resort — Beachfront Retreat in Sussex, Sierra Leone">
-  <meta property="og:description" content="Family-owned beachfront escape in Sussex, Freetown — sea-view rooms, world-class seafood, private beach, and diving.">
+  <meta property="og:title" content="Franco Diving Center — Hospitality, Restaurant & Diving · Sussex, Sierra Leone">
+  <meta property="og:description" content="Since 1995 — sea-view rooms, authentic Italian-seafood dining, and PADI-trained diving on Sussex Beach, Freetown.">
   <meta property="og:image" content="images/logo.png">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A2540">
 
   <!-- Fonts — trimmed to essential weights only for low bandwidth -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,25 +37,31 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      /* Brand Colors - Coastal Luxury */
-      --navy: #0C1B33;
-      --navy-deep: #060E1A;
-      --navy-light: #162D52;
-      --gold: #C49A3C;
-      --gold-light: #D4B06A;
-      --gold-muted: #A68332;
-      --teal: #1A6B6A;
-      --teal-light: #2A8B8A;
-      --cream: #FBF8F2;
-      --cream-warm: #F5EFE3;
-      --sand: #E8DFD0;
-      --sand-dark: #C4B8A5;
+      /* Brand Colors — Coastal Blue & White */
+      --navy: #0A2540;
+      --navy-deep: #051529;
+      --navy-light: #17406B;
+      --blue: #2563EB;
+      --blue-bright: #3B82F6;
+      --blue-sky: #60A5FA;
+      --blue-ice: #DBEAFE;
+      --blue-deep: #1E3A8A;
+      /* Legacy tokens remapped to the blue system */
+      --gold: #3B82F6;
+      --gold-light: #60A5FA;
+      --gold-muted: #2563EB;
+      --teal: #0891B2;
+      --teal-light: #06B6D4;
+      --cream: #FFFFFF;
+      --cream-warm: #F8FAFC;
+      --sand: #E0F2FE;
+      --sand-dark: #BAE6FD;
       --white: #FFFFFF;
-      --text-primary: #0C1B33;
-      --text-secondary: #4A5568;
-      --text-muted: #8896A6;
-      --text-on-dark: #F0EDE6;
-      --text-on-dark-muted: #9BA8B8;
+      --text-primary: #0A2540;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+      --text-on-dark: #F0F9FF;
+      --text-on-dark-muted: #94A3B8;
 
       /* Typography */
       --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -96,14 +103,14 @@
       overflow-x: hidden;
     }
 
-    /* ========== NOISE TEXTURE OVERLAY ========== */
+    /* ========== SUBTLE BLUE WAVE TEXTURE ========== */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       z-index: 9999;
       pointer-events: none;
-      opacity: 0.025;
+      opacity: 0.015;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-repeat: repeat;
       background-size: 200px 200px;
@@ -216,7 +223,7 @@
 
     .nav-logo:hover .nav-logo-img {
       transform: scale(1.04);
-      filter: drop-shadow(0 4px 12px rgba(196,154,60,0.35));
+      filter: drop-shadow(0 4px 12px rgba(59,130,246,0.35));
     }
 
     /* Text wordmark hidden since logo has built-in brand text */
@@ -347,8 +354,8 @@
       z-index: 1;
       pointer-events: none;
       background:
-        radial-gradient(ellipse 60% 50% at 30% 60%, rgba(196,154,60,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 70% 30%, rgba(26,107,106,0.04) 0%, transparent 50%);
+        radial-gradient(ellipse 60% 50% at 30% 60%, rgba(59,130,246,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 70% 30%, rgba(6,182,212,0.04) 0%, transparent 50%);
     }
 
     .hero-content {
@@ -410,7 +417,7 @@
     .hero-title .word-em .letter {
       font-style: italic;
       font-weight: 400;
-      background: linear-gradient(to right, var(--gold-light), var(--gold));
+      background: linear-gradient(to right, var(--blue-sky), var(--blue-bright));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -438,7 +445,7 @@
     .hero-glass-cta {
       display: inline-block;
       position: relative;
-      background: linear-gradient(to bottom, rgba(196,154,60,0.15), rgba(255,255,255,0.05));
+      background: linear-gradient(to bottom, rgba(59,130,246,0.15), rgba(255,255,255,0.05));
       padding: 1px;
       border-radius: 1rem;
       backdrop-filter: blur(12px);
@@ -450,7 +457,7 @@
     }
 
     .hero-glass-cta:hover {
-      box-shadow: 0 8px 36px rgba(196,154,60,0.2);
+      box-shadow: 0 8px 36px rgba(59,130,246,0.2);
       transform: translateY(-2px);
     }
     .hero-glass-cta:active { transform: translateY(0) scale(0.98); }
@@ -522,7 +529,7 @@
     .btn-primary:hover {
       transform: translateY(-2px);
       background: var(--gold-light);
-      box-shadow: 0 8px 30px rgba(196,154,60,0.3);
+      box-shadow: 0 8px 30px rgba(59,130,246,0.3);
     }
     .btn-primary:hover::before { opacity: 1; }
     .btn-primary:active { transform: translateY(0) scale(0.98); }
@@ -547,7 +554,7 @@
 
     .btn-secondary:hover {
       border-color: var(--gold);
-      background: rgba(196,154,60,0.08);
+      background: rgba(59,130,246,0.08);
       transform: translateY(-2px);
     }
     .btn-secondary:active { transform: translateY(0) scale(0.98); }
@@ -582,8 +589,8 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: rgba(196,154,60,0.1);
-      border: 1px solid rgba(196,154,60,0.2);
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -723,7 +730,7 @@
       right: 0;
       width: 50%;
       height: 100%;
-      background: radial-gradient(ellipse at 100% 30%, rgba(26,107,106,0.06) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 100% 30%, rgba(6,182,212,0.06) 0%, transparent 60%);
     }
 
     .rooms .section-label { color: var(--gold-light); }
@@ -743,6 +750,14 @@
       margin-bottom: var(--space-xl);
     }
 
+    .rooms-grid-two {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 2rem;
+    }
+
     .room-card {
       position: relative;
       overflow: hidden;
@@ -754,7 +769,7 @@
 
     .room-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(196,154,60,0.2);
+      border-color: rgba(59,130,246,0.2);
     }
     .room-card:focus-visible {
       outline: 2px solid var(--gold);
@@ -817,8 +832,8 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--gold);
-      background: rgba(196,154,60,0.08);
-      border: 1px solid rgba(196,154,60,0.15);
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.15);
       padding: 0.35rem 0.75rem;
     }
 
@@ -908,7 +923,17 @@
       padding-top: 0.2rem;
     }
 
-    .dish-info { flex: 1; }
+    .dish-info { flex: 1; min-width: 0; }
+
+    .dish-price {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blue);
+      white-space: nowrap;
+      padding-top: 0.15rem;
+      letter-spacing: 0.02em;
+    }
 
     .dish-name {
       font-family: var(--font-display);
@@ -946,18 +971,283 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(12,27,51,0.25) 0%, transparent 30%),
-                  linear-gradient(135deg, rgba(26,107,106,0.1) 0%, transparent 50%);
+                  linear-gradient(135deg, rgba(6,182,212,0.1) 0%, transparent 50%);
       mix-blend-mode: multiply;
+    }
+
+    .restaurant-menu-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.3rem;
+      transition: color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out), gap var(--duration-fast) var(--ease-out);
+    }
+    .restaurant-menu-link:hover {
+      color: var(--blue-deep);
+      border-color: var(--blue);
+      gap: 0.9rem;
+    }
+    .restaurant-menu-link i { width: 16px; height: 16px; }
+
+    /* ========== FULL MENU (tabbed) ========== */
+    .full-menu {
+      margin-top: var(--space-3xl);
+      scroll-margin-top: 6rem;
+    }
+
+    .full-menu-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+    .full-menu-header .section-label {
+      justify-content: center;
+    }
+    .full-menu-header .section-label::before { display: none; }
+    .full-menu-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 0.25rem 0 0.75rem;
+    }
+    .full-menu-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--sand-dark);
+      padding-bottom: 0.25rem;
+    }
+    .menu-tab {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      cursor: pointer;
+      position: relative;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+    .menu-tab::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--blue);
+      transition: width var(--duration-med) var(--ease-out);
+    }
+    .menu-tab:hover { color: var(--text-primary); }
+    .menu-tab.active { color: var(--blue); }
+    .menu-tab.active::after { width: 80%; }
+    .menu-tab:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
+
+    .menu-panels {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .menu-panel {
+      display: none;
+    }
+    .menu-panel.active {
+      display: block;
+      animation: menuFadeIn 0.4s var(--ease-out);
+    }
+    @keyframes menuFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-intro {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px dashed var(--sand-dark);
+    }
+
+    .menu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--sand);
+    }
+    .menu-row:last-of-type { border-bottom: none; }
+    .menu-row-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      flex: 1;
+      min-width: 0;
+    }
+    .menu-row-desc {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.25rem;
+      line-height: 1.55;
+    }
+    .menu-row-price {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--blue);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .menu-footnote {
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
     }
 
     .restaurant-note {
       margin-top: var(--space-lg);
       padding: 1.25rem 1.5rem;
-      background: var(--cream-warm);
-      border-left: 3px solid var(--gold);
+      background: var(--blue-ice);
+      border-left: 3px solid var(--blue);
       font-size: 0.9rem;
       color: var(--text-secondary);
     }
+
+    /* ========== DIVING SECTION ========== */
+    .diving {
+      position: relative;
+      padding: var(--space-4xl) 0;
+      overflow: hidden;
+      background: var(--navy-deep);
+      isolation: isolate;
+    }
+
+    .diving-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .diving-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+    .diving-video-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(10,37,64,0.95) 0%, rgba(10,37,64,0.65) 55%, rgba(10,37,64,0.45) 100%),
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(37,99,235,0.25), transparent 60%);
+    }
+
+    .diving-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .diving-content {
+      max-width: 720px;
+    }
+
+    .diving-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin: var(--space-xl) 0 var(--space-lg);
+      max-width: 680px;
+    }
+    .diving-highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 1.25rem 1.25rem 1.35rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 2px;
+      transition: background var(--duration-med) var(--ease-out), border-color var(--duration-med) var(--ease-out), transform var(--duration-med) var(--ease-out);
+    }
+    .diving-highlight:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(96,165,250,0.3);
+      transform: translateY(-2px);
+    }
+    .diving-highlight i {
+      width: 22px;
+      height: 22px;
+      color: var(--blue-sky);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .diving-highlight-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
+    }
+    .diving-highlight-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    .btn-dive {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--white);
+      padding: 1.1rem 2.25rem;
+      transition: transform var(--duration-fast) var(--ease-spring), background var(--duration-fast) var(--ease-out), box-shadow var(--duration-med) var(--ease-out);
+    }
+    .btn-dive:hover {
+      transform: translateY(-2px);
+      background: var(--blue-ice);
+      box-shadow: 0 10px 30px rgba(96,165,250,0.25);
+    }
+    .btn-dive:active { transform: translateY(0) scale(0.98); }
+    .btn-dive:focus-visible { outline: 2px solid var(--blue-sky); outline-offset: 4px; }
+    .btn-dive i { width: 16px; height: 16px; }
 
     /* ========== EXPERIENCE SECTION ========== */
     .experience {
@@ -974,7 +1264,7 @@
       left: 0;
       width: 100%;
       height: 40%;
-      background: radial-gradient(ellipse at 30% 100%, rgba(26,107,106,0.04) 0%, transparent 50%);
+      background: radial-gradient(ellipse at 30% 100%, rgba(6,182,212,0.04) 0%, transparent 50%);
     }
 
     .experience-header {
@@ -1040,7 +1330,7 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(26,107,106,0.08), rgba(196,154,60,0.06));
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(59,130,246,0.06));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1080,7 +1370,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(26,107,106,0.05) 0%, transparent 60%);
+      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(6,182,212,0.05) 0%, transparent 60%);
     }
 
     .testimonials-header {
@@ -1114,7 +1404,7 @@
     }
 
     .testimonial-card:hover {
-      border-color: rgba(196,154,60,0.15);
+      border-color: rgba(59,130,246,0.15);
     }
 
     .testimonial-quote-mark {
@@ -1203,7 +1493,7 @@
     }
 
     .contact-item:hover .contact-item-icon {
-      background: rgba(196,154,60,0.08);
+      background: rgba(59,130,246,0.08);
       border-color: var(--gold);
     }
 
@@ -1417,6 +1707,7 @@
       .about-img-secondary { width: 55%; height: 180px; }
 
       .rooms-grid { grid-template-columns: 1fr; max-width: 500px; }
+      .rooms-grid-two { grid-template-columns: 1fr; max-width: 520px; gap: 1.5rem; }
       .rooms-header { margin-bottom: var(--space-xl); }
 
       .experience-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1440,9 +1731,16 @@
       .section-body { font-size: 0.95rem; }
 
       /* Reduce section padding on mobile */
-      .about, .rooms, .restaurant, .experience, .testimonials, .contact {
+      .about, .rooms, .restaurant, .experience, .testimonials, .contact, .diving {
         padding: var(--space-3xl) 0;
       }
+
+      .diving-highlights { grid-template-columns: 1fr; gap: 0.85rem; }
+      .menu-tab { padding: 0.75rem 1rem; font-size: 0.75rem; }
+      .menu-tabs { gap: 0; }
+      .full-menu { margin-top: var(--space-2xl); }
+      .menu-row { flex-direction: column; gap: 0.35rem; align-items: flex-start; }
+      .menu-row-price { align-self: flex-start; }
 
       .contact-directions {
         padding: 1rem 1.25rem;
@@ -1809,7 +2107,7 @@
     .date-field input:focus {
       outline: none;
       border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(196,154,60,0.1);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
     }
 
     .nights-display {
@@ -2020,18 +2318,18 @@
   <!-- ====== NAVIGATION ====== -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="#" class="nav-logo" aria-label="Franco Resort - Home">
+      <a href="#" class="nav-logo" aria-label="Franco Diving Center - Home">
         <img src="images/logo.png" alt="" class="nav-logo-img" width="38" height="52" aria-hidden="true">
         <span class="nav-logo-text">
-          <span class="nav-logo-name">Franco Resort</span>
-          <span class="nav-logo-tagline">Sussex &middot; Sierra Leone</span>
+          <span class="nav-logo-name">Franco Diving Center</span>
+          <span class="nav-logo-tagline">Est. 1995 &middot; Sussex, Sierra Leone</span>
         </span>
       </a>
       <ul class="nav-links">
         <li><a href="#about">Our Story</a></li>
         <li><a href="#rooms">Rooms</a></li>
-        <li><a href="#restaurant">Dining</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#restaurant">Menu</a></li>
+        <li><a href="#diving">Diving</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#rooms" class="nav-cta">Book Your Stay</a></li>
       </ul>
@@ -2049,9 +2347,9 @@
     <div class="hero-glow"></div>
 
     <div class="hero-content">
-      <div class="hero-tag">Sussex &middot; Sierra Leone</div>
+      <div class="hero-tag">Since 1995 &middot; Sussex, Sierra Leone</div>
       <h1 class="hero-title" id="hero-title" aria-label="Where the Ocean Meets Endless Calm"></h1>
-      <p class="hero-subtitle">A hidden gem on the Freetown Peninsula — where fresh seafood, sea-view rooms, and the rhythm of the Atlantic come together. Your home away from home.</p>
+      <p class="hero-subtitle">Franco Diving Center is a family-run escape on the Freetown Peninsula — sea-view rooms, an Italian kitchen, and a diving school that's been running since 1995. Your home on the Atlantic coast.</p>
       <div class="hero-ctas">
         <a href="#rooms" class="hero-glass-cta">
           <span class="hero-glass-cta-inner">
@@ -2059,8 +2357,8 @@
             <span class="hero-glass-cta-arrow">&rarr;</span>
           </span>
         </a>
-        <a href="#about" class="btn-secondary">
-          Explore the Resort
+        <a href="#diving" class="btn-secondary">
+          Explore Diving
         </a>
       </div>
     </div>
@@ -2069,11 +2367,11 @@
       <div class="hero-stats-inner">
         <div class="hero-stat">
           <div class="hero-stat-icon">
-            <i data-lucide="door-open"></i>
+            <i data-lucide="waves"></i>
           </div>
           <div class="hero-stat-text">
-            7 Sea-View Rooms
-            <span>Every room over the water</span>
+            30 Years of Diving
+            <span>Family-run since 1995</span>
           </div>
         </div>
         <div class="hero-stat">
@@ -2081,8 +2379,8 @@
             <i data-lucide="map-pin"></i>
           </div>
           <div class="hero-stat-text">
-            30 Min from Freetown
-            <span>Freetown Peninsula coast</span>
+            20 Michael Street
+            <span>Sussex Village, Freetown</span>
           </div>
         </div>
         <div class="hero-stat">
@@ -2104,23 +2402,23 @@
       <div class="about-inner">
         <div class="about-images">
           <div class="about-img-main reveal">
-            <img src="https://placehold.co/480x336/1A6B6A/FBF8F2?text=Resort+Exterior" alt="Franco Resort Mediterranean-inspired architecture overlooking the ocean" loading="lazy" width="800" height="560">
+            <img src="https://placehold.co/480x336/1E3A8A/FFFFFF?text=Resort+%26+Sussex+Beach" alt="Franco Diving Center on Sussex Beach, Sierra Leone" loading="lazy" width="800" height="560">
           </div>
           <div class="about-img-secondary reveal">
-            <img src="https://placehold.co/400x267/C49A3C/FBF8F2?text=Franco+%26+Florence" alt="Franco and Florence, the resort founders" loading="lazy" width="600" height="400">
+            <img src="https://placehold.co/400x267/2563EB/FFFFFF?text=Franco+%26+Florence" alt="Franco and Florence, the founders, since 1995" loading="lazy" width="600" height="400">
           </div>
           <div class="about-accent"></div>
         </div>
 
         <div class="about-content">
           <div class="section-label reveal">Our Story</div>
-          <h2 class="section-heading reveal">Built from the Shore, <em>With Heart</em></h2>
+          <h2 class="section-heading reveal">Thirty Years on <em>Sussex Beach</em></h2>
           <div class="about-body section-body reveal">
-            <p>Franco Resort is more than a place to stay — it's a labour of love. Built from scratch by Franco and Florence, a Sierra Leonean/Italian family, the resort sits directly on a pristine tidal inlet along one of Sierra Leone's most beautiful stretches of coastline.</p>
-            <p>Rebuilt after the war and lovingly refined over the years, it remains one of the most personal and characterful escapes on the entire peninsula.</p>
+            <p>Founded in 1995 by Franco and Florence — a Sierra Leonean–Italian family — Franco Diving Center began as a diving school and has grown into a full coastal experience: hospitality, restaurant, and diving, all under one roof on the shores of Sussex Village.</p>
+            <p>Rebuilt with care after the war and refined every year since, it remains one of the most personal escapes on the Freetown Peninsula — a place where guests return year after year and leave as friends.</p>
           </div>
           <div class="about-divider reveal"></div>
-          <p class="about-detail reveal">With Mediterranean-inspired architecture, panoramic mountain views, and the sound of the ocean at every turn — Franco's is the kind of place that stays with you long after you've left.</p>
+          <p class="about-detail reveal">An Italian kitchen, sea-view rooms, and a diving school run by the family itself — Franco's is the kind of place that stays with you long after you've left.</p>
         </div>
       </div>
     </div>
@@ -2131,52 +2429,39 @@
     <div class="container">
       <div class="rooms-header">
         <div class="section-label reveal">Accommodation</div>
-        <h2 class="section-heading reveal">Seven Rooms, <em>Seven Views</em></h2>
-        <p class="section-body reveal" style="margin-top: var(--space-md);">Every one of our seven ensuite rooms is built over the water's edge, with uninterrupted views of Sussex Bay and the surrounding coastline.</p>
+        <h2 class="section-heading reveal">Two Room Types, <em>One Sea View</em></h2>
+        <p class="section-body reveal" style="margin-top: var(--space-md);">Every ensuite room is built along the water's edge, with uninterrupted views of Sussex Bay. Choose the comfort of a Standard Room or the generous space of a Deluxe Suite.</p>
       </div>
 
-      <div class="rooms-grid">
+      <div class="rooms-grid rooms-grid-two">
         <div class="room-card" tabindex="0">
           <div class="room-card-image">
-            <img src="https://placehold.co/400x267/162D52/FBF8F2?text=Sea+View+Suite" alt="Sea view suite with panoramic ocean views" loading="lazy" width="600" height="400">
+            <img src="https://placehold.co/480x320/1E3A8A/FFFFFF?text=Standard+Room" alt="Standard sea-view room at Franco Diving Center" loading="lazy" width="600" height="400">
           </div>
           <div class="room-card-body">
-            <h3 class="room-card-title">Sea View Suite</h3>
-            <p class="room-card-desc">Corner rooms on the second floor with unmatched panoramic views of the river inlet and Sussex Bay.</p>
+            <h3 class="room-card-title">Standard Room</h3>
+            <p class="room-card-desc">Comfortable ensuite rooms with sea views, hot water bathroom, ceiling fan and mosquito net — everything you need for a restful tropical stay.</p>
             <div class="room-card-features">
               <span class="room-feature-tag">Sea View</span>
-              <span class="room-feature-tag">A/C</span>
               <span class="room-feature-tag">Ensuite</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="room-card" tabindex="0">
-          <div class="room-card-image">
-            <img src="https://placehold.co/400x267/1A6B6A/FBF8F2?text=Ocean+Room" alt="Ocean front room with direct water views" loading="lazy" width="600" height="400">
-          </div>
-          <div class="room-card-body">
-            <h3 class="room-card-title">Ocean Front Room</h3>
-            <p class="room-card-desc">Spacious rooms with private hot water bathrooms, flat-screen TV, and the sound of waves just below.</p>
-            <div class="room-card-features">
-              <span class="room-feature-tag">Ocean View</span>
-              <span class="room-feature-tag">Mini Fridge</span>
-              <span class="room-feature-tag">TV</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="room-card" tabindex="0">
-          <div class="room-card-image">
-            <img src="https://placehold.co/400x267/0C1B33/FBF8F2?text=Comfort+Room" alt="Comfortable room equipped with modern amenities" loading="lazy" width="600" height="400">
-          </div>
-          <div class="room-card-body">
-            <h3 class="room-card-title">Comfort Room</h3>
-            <p class="room-card-desc">Cozy rooms with ceiling fan, mosquito net, and everything you need for a peaceful tropical retreat.</p>
-            <div class="room-card-features">
-              <span class="room-feature-tag">Ceiling Fan</span>
-              <span class="room-feature-tag">Mosquito Net</span>
               <span class="room-feature-tag">Hot Water</span>
+              <span class="room-feature-tag">Ceiling Fan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="room-card" tabindex="0">
+          <div class="room-card-image">
+            <img src="https://placehold.co/480x320/2563EB/FFFFFF?text=Deluxe+Suite" alt="Deluxe suite with panoramic ocean views and premium amenities" loading="lazy" width="600" height="400">
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-card-title">Deluxe Suite</h3>
+            <p class="room-card-desc">Spacious corner suites with panoramic views of the river inlet and Sussex Bay, premium bedding, air conditioning, mini fridge and flat-screen TV.</p>
+            <div class="room-card-features">
+              <span class="room-feature-tag">Panoramic View</span>
+              <span class="room-feature-tag">Air Conditioning</span>
+              <span class="room-feature-tag">Mini Fridge</span>
+              <span class="room-feature-tag">Flat-screen TV</span>
             </div>
           </div>
         </div>
@@ -2184,17 +2469,17 @@
 
       <div class="rooms-pricing reveal">
         <div class="rooms-price-item">
-          <div class="rooms-price-label">Low Season</div>
+          <div class="rooms-price-label">Standard from</div>
           <div class="rooms-price-value">$57.50 <small>/night</small></div>
         </div>
         <div class="rooms-price-divider"></div>
         <div class="rooms-price-item">
-          <div class="rooms-price-label">High Season</div>
-          <div class="rooms-price-value">$69 <small>/night</small></div>
+          <div class="rooms-price-label">Deluxe from</div>
+          <div class="rooms-price-value">$85 <small>/night</small></div>
         </div>
         <div class="rooms-price-divider"></div>
         <div class="rooms-price-item">
-          <div class="rooms-price-label">Includes</div>
+          <div class="rooms-price-label">Always</div>
           <div class="rooms-price-value" style="font-size: 1.25rem;">Tax Included</div>
         </div>
       </div>
@@ -2207,57 +2492,189 @@
       <div class="restaurant-inner">
         <div class="restaurant-content">
           <div class="section-label reveal">Dining</div>
-          <h2 class="section-heading reveal">Fresh from the Sea, <em>Every Day</em></h2>
-          <p class="section-body reveal" style="margin-top: var(--space-md);">The heart of Franco Resort is its restaurant — a beloved institution among Freetown locals and expats alike. Every dish is made from the day's freshest catch, blended with the finest Italian culinary tradition.</p>
+          <h2 class="section-heading reveal">Italian Kitchen, <em>Atlantic Catch</em></h2>
+          <p class="section-body reveal" style="margin-top: var(--space-md);">The heart of Franco Diving Center is its restaurant — a beloved institution among Freetown locals and expats since 1995. Every dish is built from the day's freshest catch, hand-prepared with the finest Italian culinary tradition.</p>
 
           <div class="restaurant-dishes">
             <div class="dish-item">
               <span class="dish-number">01</span>
               <div class="dish-info">
-                <div class="dish-name">Fish Carpaccio</div>
-                <div class="dish-desc">"Possibly the best thing you'll eat in Sierra Leone"</div>
+                <div class="dish-name">Wayne's Special</div>
+                <div class="dish-desc">Fresh lobster in a creamy sauce — our signature dish</div>
               </div>
+              <div class="dish-price">Le 650</div>
             </div>
             <div class="dish-item">
               <span class="dish-number">02</span>
               <div class="dish-info">
-                <div class="dish-name">Lobster Skewers with Chips</div>
-                <div class="dish-desc">Fresh Atlantic lobster, grilled to perfection</div>
+                <div class="dish-name">Franco's Special</div>
+                <div class="dish-desc">Crab sautéed in melted butter and fresh garlic</div>
               </div>
+              <div class="dish-price">Le 500</div>
             </div>
             <div class="dish-item">
               <span class="dish-number">03</span>
               <div class="dish-info">
-                <div class="dish-name">Spaghetti with Mangrove Crab</div>
-                <div class="dish-desc">Italian tradition meets Sierra Leonean waters</div>
+                <div class="dish-name">Fresh Lobster</div>
+                <div class="dish-desc">Grilled or steamed with mayonnaise and lime (500g / 1kg)</div>
               </div>
+              <div class="dish-price">Le 750 / 1,500</div>
             </div>
             <div class="dish-item">
               <span class="dish-number">04</span>
               <div class="dish-info">
-                <div class="dish-name">Grilled Barracuda</div>
-                <div class="dish-desc">Served with fresh tomato salad</div>
+                <div class="dish-name">Fresh Grilled Fish</div>
+                <div class="dish-desc">Whole mackerel, snapper, pompano, grouper or barracuda</div>
               </div>
+              <div class="dish-price">Le 750</div>
             </div>
             <div class="dish-item">
               <span class="dish-number">05</span>
               <div class="dish-info">
-                <div class="dish-name">Tiger Prawns</div>
-                <div class="dish-desc">Simply prepared, impossibly fresh</div>
+                <div class="dish-name">Homemade Lasagna</div>
+                <div class="dish-desc">Baked in our wood oven — order in advance by phone</div>
               </div>
+              <div class="dish-price">Le 500</div>
             </div>
           </div>
 
           <div class="restaurant-note reveal">
-            <strong>Please note:</strong> Food is cooked to order. For dinner, booking in advance is recommended. The restaurant is especially busy on Sundays.
+            <strong>Please note:</strong> All food is cooked to order. For dinner reservations, call ahead — especially on Sundays. All prices in SLE &middot; 15% GST applies on most items.
           </div>
+
+          <a href="#full-menu" class="restaurant-menu-link reveal">
+            <span>View the full menu</span>
+            <i data-lucide="arrow-down-right"></i>
+          </a>
         </div>
 
         <div class="restaurant-images">
           <div class="restaurant-img-wrapper">
-            <img src="images/fresh-uncooked-sea-food-specialties.jpg" alt="Fresh seafood dining at Franco Resort restaurant" loading="lazy" width="800" height="900">
+            <img src="images/fresh-uncooked-sea-food-specialties.jpg" alt="Fresh Atlantic seafood selection at Franco Diving Center" loading="lazy" width="800" height="900">
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Full Menu -->
+    <div class="container full-menu" id="full-menu">
+      <div class="full-menu-header reveal">
+        <div class="section-label">Full Menu</div>
+        <h3 class="full-menu-title">The Complete Menu</h3>
+        <p class="full-menu-sub">Authentic Italian cuisine meets the Atlantic. All prices in Sierra Leonean Leones (SLE). GST 15% applies unless noted.</p>
+      </div>
+
+      <div class="menu-tabs reveal" role="tablist">
+        <button class="menu-tab active" data-cat="pasta" role="tab" aria-selected="true">Pasta</button>
+        <button class="menu-tab" data-cat="specials" role="tab" aria-selected="false">Specials</button>
+        <button class="menu-tab" data-cat="seafood" role="tab" aria-selected="false">Seafood</button>
+        <button class="menu-tab" data-cat="sides" role="tab" aria-selected="false">Sides</button>
+        <button class="menu-tab" data-cat="desserts" role="tab" aria-selected="false">Desserts &amp; Extras</button>
+      </div>
+
+      <div class="menu-panels reveal">
+        <div class="menu-panel active" data-cat="pasta">
+          <p class="menu-intro">Pair any sauce with your choice of spaghetti, penne, farfalle, fusilli or tagliatelle. Whole-meal pasta available on request.</p>
+          <div class="menu-row"><div class="menu-row-name">Pasta al Pomodoro <span class="menu-row-desc">Classic Italian tomato sauce — spaghetti, penne or farfalle</span></div><div class="menu-row-price">Le 400</div></div>
+          <div class="menu-row"><div class="menu-row-name">Pasta alla Carbonara <span class="menu-row-desc">Ham with fresh cheese eggs — recommended with spaghetti</span></div><div class="menu-row-price">Le 450</div></div>
+          <div class="menu-row"><div class="menu-row-name">Pasta al Ragu Bolognese <span class="menu-row-desc">Minced beef in a tasty tomato base</span></div><div class="menu-row-price">Le 500</div></div>
+          <div class="menu-row"><div class="menu-row-name">Pasta ai Funghi <span class="menu-row-desc">Mushroom in a delicately spicy cream sauce</span></div><div class="menu-row-price">Le 500</div></div>
+        </div>
+
+        <div class="menu-panel" data-cat="specials">
+          <div class="menu-row"><div class="menu-row-name">Wayne's Special <span class="menu-row-desc">Fresh lobster in a creamy sauce — with spaghetti or penne</span></div><div class="menu-row-price">Le 650</div></div>
+          <div class="menu-row"><div class="menu-row-name">Franco's Special <span class="menu-row-desc">Crab sautéed in melted butter and fresh garlic</span></div><div class="menu-row-price">Le 500</div></div>
+          <div class="menu-row"><div class="menu-row-name">Pippo's Special <span class="menu-row-desc">Shrimp sautéed in melted butter and fresh garlic</span></div><div class="menu-row-price">Le 500</div></div>
+          <div class="menu-row"><div class="menu-row-name">Fish Thermidor <span class="menu-row-desc">A variation of Wayne's Special — fresh fish in our creamy sauce</span></div><div class="menu-row-price">Le 450</div></div>
+          <div class="menu-row"><div class="menu-row-name">Homemade Lasagna <span class="menu-row-desc">Baked in our wood oven — order in advance by phone</span></div><div class="menu-row-price">Le 500</div></div>
+          <div class="menu-row"><div class="menu-row-name">Gnocchi <span class="menu-row-desc">Homemade, served with Bolognese sauce and fresh parmesan</span></div><div class="menu-row-price">Le 500</div></div>
+        </div>
+
+        <div class="menu-panel" data-cat="seafood">
+          <p class="menu-intro">All seafood grilled on charcoal and served with salad, chips or plain rice.</p>
+          <div class="menu-row"><div class="menu-row-name">Fresh Grilled Fish <span class="menu-row-desc">Whole mackerel, snapper, pompano, grouper or barracuda</span></div><div class="menu-row-price">Le 750</div></div>
+          <div class="menu-row"><div class="menu-row-name">Barracuda Fillet <span class="menu-row-desc">Grilled to perfection</span></div><div class="menu-row-price">Le 550</div></div>
+          <div class="menu-row"><div class="menu-row-name">Barracuda Kebab <span class="menu-row-desc">Two sticks, diced fresh barracuda with onions and tomatoes</span></div><div class="menu-row-price">Le 700</div></div>
+          <div class="menu-row"><div class="menu-row-name">Shrimp Kebab <span class="menu-row-desc">Two sticks, fresh shrimp with onions and tomatoes</span></div><div class="menu-row-price">Le 750</div></div>
+          <div class="menu-row"><div class="menu-row-name">Tiger Shrimp <span class="menu-row-desc">Subject to availability</span></div><div class="menu-row-price">Le 750</div></div>
+          <div class="menu-row"><div class="menu-row-name">Fresh Crab <span class="menu-row-desc">Grilled or steamed — two crabs per plate</span></div><div class="menu-row-price">Le 500</div></div>
+          <div class="menu-row"><div class="menu-row-name">Fresh Lobster <span class="menu-row-desc">Grilled, or steamed with mayonnaise and lime (500g / 1kg)</span></div><div class="menu-row-price">Le 750 / 1,500</div></div>
+          <div class="menu-row"><div class="menu-row-name">Lobster Kebab <span class="menu-row-desc">Marinated fresh lobster with onions and tomatoes (500g / 1kg)</span></div><div class="menu-row-price">Le 750 / 1,500</div></div>
+          <p class="menu-footnote">* These grilled dishes contain peanuts.</p>
+        </div>
+
+        <div class="menu-panel" data-cat="sides">
+          <p class="menu-intro">GST of 15% not included on sides.</p>
+          <div class="menu-row"><div class="menu-row-name">Chips</div><div class="menu-row-price">Le 200</div></div>
+          <div class="menu-row"><div class="menu-row-name">Boiled Potatoes</div><div class="menu-row-price">Le 200</div></div>
+          <div class="menu-row"><div class="menu-row-name">Fried Rice <span class="menu-row-desc">Fresh with mixed vegetables and shrimp</span></div><div class="menu-row-price">Le 300</div></div>
+          <div class="menu-row"><div class="menu-row-name">Steam Rice</div><div class="menu-row-price">Le 200</div></div>
+          <div class="menu-row"><div class="menu-row-name">Mixed Salad <span class="menu-row-desc">Tomatoes, cucumbers and onions</span></div><div class="menu-row-price">Le 280</div></div>
+        </div>
+
+        <div class="menu-panel" data-cat="desserts">
+          <div class="menu-row"><div class="menu-row-name">Banana Split</div><div class="menu-row-price">Le 250</div></div>
+          <div class="menu-row"><div class="menu-row-name">Fruit Salad</div><div class="menu-row-price">Le 200</div></div>
+          <div class="menu-row"><div class="menu-row-name">Ice Cream</div><div class="menu-row-price">Le 200</div></div>
+          <div class="menu-row"><div class="menu-row-name">Fresh Fruits</div><div class="menu-row-price">Le 150</div></div>
+          <div class="menu-row"><div class="menu-row-name">Breakfast <span class="menu-row-desc">Omelette or scrambled eggs with bread, butter, jam, fresh juice and tea or coffee. Served 8:00 – 10:00 AM</span></div><div class="menu-row-price">Le 350</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== DIVING ====== -->
+  <section class="diving" id="diving">
+    <div class="diving-video-wrap" aria-hidden="true">
+      <video class="diving-video" autoplay muted loop playsinline preload="metadata" poster="images/fresh-uncooked-sea-food-specialties.jpg">
+        <source src="images/diving-1.mp4" type="video/mp4">
+      </video>
+      <div class="diving-video-overlay"></div>
+    </div>
+
+    <div class="container diving-inner">
+      <div class="diving-content">
+        <div class="section-label reveal" style="color: var(--blue-sky);">Diving &middot; Since 1995</div>
+        <h2 class="section-heading reveal" style="color: var(--white);">Beneath the <em style="color: var(--blue-sky);">Atlantic's Surface</em></h2>
+        <p class="section-body reveal" style="color: rgba(255,255,255,0.85); margin-top: var(--space-md); max-width: 600px;">
+          Franco runs the diving school himself — three decades of experience guiding divers through the clear, reef-rich waters off the Freetown Peninsula. From first-timers to certified divers, every trip is tailored to the conditions, the tide, and the skill of the group.
+        </p>
+
+        <div class="diving-highlights reveal">
+          <div class="diving-highlight">
+            <i data-lucide="compass"></i>
+            <div>
+              <div class="diving-highlight-title">Guided Dives</div>
+              <div class="diving-highlight-desc">Led personally by Franco &mdash; intimate group sizes</div>
+            </div>
+          </div>
+          <div class="diving-highlight">
+            <i data-lucide="life-buoy"></i>
+            <div>
+              <div class="diving-highlight-title">All Levels</div>
+              <div class="diving-highlight-desc">From discovery dives for beginners to advanced sites</div>
+            </div>
+          </div>
+          <div class="diving-highlight">
+            <i data-lucide="fish"></i>
+            <div>
+              <div class="diving-highlight-title">Atlantic Marine Life</div>
+              <div class="diving-highlight-desc">Tropical reef fish, rays, coral formations, and shipwrecks</div>
+            </div>
+          </div>
+          <div class="diving-highlight">
+            <i data-lucide="anchor"></i>
+            <div>
+              <div class="diving-highlight-title">Boat-Based</div>
+              <div class="diving-highlight-desc">Departing from our private beach in Sussex Village</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn-dive reveal">
+          <span>Enquire About a Dive</span>
+          <i data-lucide="arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -2278,14 +2695,6 @@
           </div>
           <h3 class="exp-card-title">Private Beach</h3>
           <p class="exp-card-desc">A sheltered tidal river inlet with beach huts, lounge chairs, and a wide stretch of unspoiled coastline at low tide — often completely deserted.</p>
-        </div>
-
-        <div class="exp-card" tabindex="0">
-          <div class="exp-card-icon">
-            <i data-lucide="waves"></i>
-          </div>
-          <h3 class="exp-card-title">Diving School</h3>
-          <p class="exp-card-desc">Franco runs the on-site diving school personally. Explore the crystal-clear waters of the Atlantic off the Freetown Peninsula.</p>
         </div>
 
         <div class="exp-card" tabindex="0">
@@ -2318,6 +2727,14 @@
           </div>
           <h3 class="exp-card-title">Atlantic Sunsets</h3>
           <p class="exp-card-desc">Watch the sun dip below the horizon from the restaurant terrace or the sand — with a cold drink in hand and nowhere to be.</p>
+        </div>
+
+        <div class="exp-card" tabindex="0">
+          <div class="exp-card-icon">
+            <i data-lucide="utensils"></i>
+          </div>
+          <h3 class="exp-card-title">Italian Dining</h3>
+          <p class="exp-card-desc">Thirty years of authentic Italian cooking meets the freshest Atlantic seafood — from classic Carbonara to Fresh Lobster in creamy sauce.</p>
         </div>
       </div>
     </div>
@@ -2380,34 +2797,42 @@
       <div class="contact-inner">
         <div class="contact-content">
           <div class="section-label reveal">Find Us</div>
-          <h2 class="section-heading reveal">Come Stay, <em>Come Eat, Come Back</em></h2>
-          <p class="section-body reveal" style="margin-top: var(--space-md);">Franco Resort is located in Sussex Village on the Freetown Peninsula — approximately 30 minutes from central Freetown on the road toward River Number 2.</p>
+          <h2 class="section-heading reveal">Come Stay, <em>Come Eat, Come Dive</em></h2>
+          <p class="section-body reveal" style="margin-top: var(--space-md);">Franco Diving Center sits at 20 Michael Street, Sussex Village on the Freetown Peninsula — about 30 minutes from central Freetown, on the road toward River Number 2. Open every day, 7:00 AM to 10:00 PM.</p>
 
           <div class="contact-details">
-            <a href="tel:+23276366366" class="contact-item reveal">
-              <div class="contact-item-icon"><i data-lucide="phone"></i></div>
-              <span>+232 76 366366</span>
-            </a>
             <a href="tel:+23276744406" class="contact-item reveal">
               <div class="contact-item-icon"><i data-lucide="phone"></i></div>
-              <span>+232 76 744406</span>
+              <span>+232 76 744 406</span>
             </a>
-            <a href="mailto:info@florencesresort.com" class="contact-item reveal">
+            <a href="tel:+23277366366" class="contact-item reveal">
+              <div class="contact-item-icon"><i data-lucide="phone"></i></div>
+              <span>+232 77 366 366</span>
+            </a>
+            <a href="mailto:fabriziomiari92@gmail.com" class="contact-item reveal">
               <div class="contact-item-icon"><i data-lucide="mail"></i></div>
-              <span>info@florencesresort.com</span>
+              <span>fabriziomiari92@gmail.com</span>
             </a>
-            <a href="https://www.florencesresort.com" class="contact-item reveal" target="_blank" rel="noopener noreferrer">
-              <div class="contact-item-icon"><i data-lucide="globe"></i></div>
-              <span>www.florencesresort.com</span>
+            <a href="https://www.instagram.com/fabrizio_miari" class="contact-item reveal" target="_blank" rel="noopener noreferrer">
+              <div class="contact-item-icon"><i data-lucide="instagram"></i></div>
+              <span>@fabrizio_miari</span>
+            </a>
+            <a href="https://www.tiktok.com/@fabriziomiari" class="contact-item reveal" target="_blank" rel="noopener noreferrer">
+              <div class="contact-item-icon"><i data-lucide="music-2"></i></div>
+              <span>TikTok · @fabriziomiari</span>
             </a>
             <div class="contact-item reveal">
               <div class="contact-item-icon"><i data-lucide="map-pin"></i></div>
-              <span>Sussex Village, Western Peninsula, Sierra Leone</span>
+              <span>20 Michael Street, Sussex Village, Sierra Leone</span>
+            </div>
+            <div class="contact-item reveal">
+              <div class="contact-item-icon"><i data-lucide="clock"></i></div>
+              <span>Open daily &middot; 7:00 AM &ndash; 10:00 PM</span>
             </div>
           </div>
 
           <div class="contact-directions reveal">
-            There is approximately 300 metres of unpaved road between the Peninsula Highway and the resort entrance. Accessible by car year-round. Look for the resort sign on the right side of the road.
+            Roughly 300 metres of unpaved road links the Peninsula Highway to our entrance — accessible by car year-round. Watch for the Franco Diving Center sign on the right as you approach Sussex Village from Freetown.
           </div>
         </div>
 
@@ -2425,19 +2850,22 @@
         <div class="footer-brand">
           <img src="images/logo.png" alt="" class="footer-brand-img" width="36" height="49" aria-hidden="true" loading="lazy">
           <div class="footer-brand-text">
-            <span class="footer-brand-name">Franco Resort</span>
-            <span class="footer-brand-sub">Sussex &middot; Sierra Leone</span>
+            <span class="footer-brand-name">Franco Diving Center</span>
+            <span class="footer-brand-sub">Est. 1995 &middot; Sussex, Sierra Leone</span>
           </div>
         </div>
-        <p class="footer-copy">&copy; 2026 Franco Resort. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Franco Diving Center. All rights reserved.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-social" aria-label="Visit us on Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <a href="https://www.instagram.com/fabrizio_miari" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="mailto:info@florencesresort.com" class="footer-social" aria-label="Email us">
+          <a href="https://www.tiktok.com/@fabriziomiari" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+          <a href="mailto:fabriziomiari92@gmail.com" class="footer-social" aria-label="Email us">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </a>
-          <a href="tel:+23276366366" class="footer-social" aria-label="Call us">
+          <a href="tel:+23276744406" class="footer-social" aria-label="Call us">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </a>
         </div>
@@ -2554,8 +2982,8 @@
         }
       });
 
-      // Set SVG color to match theme (gold-tinted on navy)
-      svg.style.color = 'rgba(196, 154, 60, 0.45)';
+      // Set SVG color to match theme (blue-tinted on navy)
+      svg.style.color = 'rgba(96, 165, 250, 0.5)';
       container.appendChild(svg);
     }
 
@@ -2748,33 +3176,26 @@
 
     // ========== ROOM BOOKING SYSTEM ==========
     const roomData = {
-      'Sea View Suite': {
-        desc: 'Corner rooms on the second floor with unmatched panoramic views of the river inlet and Sussex Bay. The most spacious option with premium finishes and a private balcony area overlooking the water.',
-        img: 'https://placehold.co/400x267/162D52/FBF8F2?text=Sea+View+Suite',
-        amenities: ['Sea View', 'Air Conditioning', 'Ensuite Bathroom', 'Hot Water', 'Flat-screen TV', 'Mini Fridge', 'Mosquito Net', 'Balcony'],
+      'Standard Room': {
+        desc: 'Comfortable ensuite rooms with sea views, a private hot water bathroom, ceiling fan and mosquito net. Clean, simple, and everything you need for a restful tropical stay on Sussex Beach.',
+        img: 'https://placehold.co/480x320/1E3A8A/FFFFFF?text=Standard+Room',
+        amenities: ['Sea View', 'Ensuite Bathroom', 'Hot Water', 'Ceiling Fan', 'Mosquito Net', 'Towels Provided'],
         lowSeason: 57.50,
         highSeason: 69,
       },
-      'Ocean Front Room': {
-        desc: 'Spacious rooms with private hot water bathrooms, flat-screen TV, and the sound of waves just below. Fall asleep to the rhythm of the Atlantic and wake to stunning ocean sunrises.',
-        img: 'https://placehold.co/400x267/1A6B6A/FBF8F2?text=Ocean+Room',
-        amenities: ['Ocean View', 'Mini Fridge', 'Flat-screen TV', 'Hot Water', 'Air Conditioning', 'Ensuite Bathroom', 'Mosquito Net', 'Ceiling Fan'],
-        lowSeason: 57.50,
-        highSeason: 69,
-      },
-      'Comfort Room': {
-        desc: 'Cozy rooms with ceiling fan, mosquito net, and everything you need for a peaceful tropical retreat. Perfect for travellers who want comfort without excess — simple, clean, and right on the water.',
-        img: 'https://placehold.co/400x267/0C1B33/FBF8F2?text=Comfort+Room',
-        amenities: ['Ceiling Fan', 'Mosquito Net', 'Hot Water', 'Ensuite Bathroom', 'Sea View', 'Towels Provided'],
-        lowSeason: 57.50,
-        highSeason: 69,
+      'Deluxe Suite': {
+        desc: 'Spacious corner suites with panoramic views of the river inlet and Sussex Bay. Premium bedding, air conditioning, mini fridge, flat-screen TV and a private seating area overlooking the water.',
+        img: 'https://placehold.co/480x320/2563EB/FFFFFF?text=Deluxe+Suite',
+        amenities: ['Panoramic View', 'Air Conditioning', 'Ensuite Bathroom', 'Hot Water', 'Flat-screen TV', 'Mini Fridge', 'Mosquito Net', 'Premium Bedding'],
+        lowSeason: 85,
+        highSeason: 110,
       }
     };
 
     const amenityIcons = {
-      'Sea View': 'eye', 'Ocean View': 'waves', 'Air Conditioning': 'snowflake',
+      'Sea View': 'eye', 'Panoramic View': 'mountain-snow', 'Ocean View': 'waves', 'Air Conditioning': 'snowflake',
       'Ensuite Bathroom': 'bath', 'Hot Water': 'droplets', 'Flat-screen TV': 'monitor',
-      'Mini Fridge': 'refrigerator', 'Mosquito Net': 'shield', 'Balcony': 'fence',
+      'Mini Fridge': 'refrigerator', 'Mosquito Net': 'shield', 'Premium Bedding': 'bed',
       'Ceiling Fan': 'fan', 'Towels Provided': 'shirt'
     };
 
@@ -2898,6 +3319,21 @@
       cm.querySelector('.checkout-iframe-wrap iframe').src = checkoutUrl;
       setTimeout(() => openModal('checkout-modal'), 100);
     }
+
+    // ========== MENU TABS ==========
+    document.querySelectorAll('.menu-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const cat = tab.dataset.cat;
+        document.querySelectorAll('.menu-tab').forEach(t => {
+          const active = t === tab;
+          t.classList.toggle('active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        document.querySelectorAll('.menu-panel').forEach(p => {
+          p.classList.toggle('active', p.dataset.cat === cat);
+        });
+      });
+    });
 
     // Event: room card clicks
     document.querySelectorAll('.room-card').forEach(card => {
@@ -3049,7 +3485,7 @@
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('checkout-modal'); document.querySelector('#checkout-modal iframe').src='';" aria-label="Close">&times;</button>
       <div class="checkout-header">
-        <span class="checkout-brand">Franco Resort</span>
+        <span class="checkout-brand">Franco Diving Center</span>
         <span class="checkout-amount-display" style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);"></span>
         <span class="checkout-secured">Secured by Flot</span>
       </div>
