@@ -186,7 +186,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 1.5rem 0;
+      padding: 0.5rem 0;
       transition: all var(--duration-med) var(--ease-out);
     }
 
@@ -194,9 +194,10 @@
       background: rgba(12, 27, 51, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      padding: 1rem 0;
+      padding: 0.25rem 0;
       box-shadow: 0 4px 30px rgba(0,0,0,0.15);
     }
+    .nav.scrolled .nav-logo-img { height: 120px; }
 
     .nav-inner {
       display: flex;
@@ -216,14 +217,14 @@
 
     .nav-logo-img {
       width: auto;
-      height: 112px;
+      height: 160px;
       flex-shrink: 0;
       transition: transform var(--duration-fast) var(--ease-spring), filter var(--duration-med) var(--ease-out);
     }
 
     .nav-logo:hover .nav-logo-img {
       transform: scale(1.04);
-      filter: drop-shadow(0 4px 12px rgba(59,130,246,0.35));
+      filter: drop-shadow(0 6px 20px rgba(245,158,11,0.35));
     }
 
     /* Text wordmark hidden since logo has built-in brand text */
@@ -1684,7 +1685,8 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
-      .nav-logo-img { height: 96px; }
+      .nav-logo-img { height: 120px; }
+      .nav.scrolled .nav-logo-img { height: 96px; }
       .footer-brand-img { height: 92px; }
 
       .nav-links.open {
@@ -1865,7 +1867,8 @@
 
       .nav-logo-name { font-size: 1.25rem; }
       .nav-logo-tagline { font-size: 0.5rem; }
-      .nav-logo-img { height: 92px; }
+      .nav-logo-img { height: 100px; }
+      .nav.scrolled .nav-logo-img { height: 80px; }
       .nav-logo { gap: 0.5rem; }
       .nav-inner { padding: 0 1rem; }
 
@@ -2307,6 +2310,65 @@
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
+
+    /* Guest count stepper */
+    .guest-stepper {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid rgba(12,27,51,0.15);
+      background: var(--white);
+      width: fit-content;
+      position: relative;
+      padding-right: 1rem;
+    }
+    .guest-stepper-btn {
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--blue);
+      cursor: pointer;
+      transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .guest-stepper-btn:hover { background: var(--blue-ice); }
+    .guest-stepper-btn:active { background: var(--blue); color: var(--white); }
+    .guest-stepper-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .guest-stepper-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+    .guest-stepper input {
+      width: 48px;
+      text-align: center;
+      border: none;
+      border-left: 1px solid rgba(12,27,51,0.1);
+      border-right: 1px solid rgba(12,27,51,0.1);
+      padding: 0.5rem 0;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      -moz-appearance: textfield;
+    }
+    .guest-stepper input::-webkit-outer-spin-button,
+    .guest-stepper input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .guest-stepper input:focus { outline: none; }
+    .guest-stepper-label {
+      padding-left: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
     .date-field-full { grid-column: 1 / -1; }
     .label-optional {
       font-size: 0.65rem;
@@ -2339,6 +2401,112 @@
       color: var(--text-muted);
       text-align: center;
       line-height: 1.5;
+    }
+
+    /* Narrow modal variant for choice + guest steps */
+    .modal-content-narrow {
+      max-width: 540px;
+    }
+
+    /* Reserve choice cards */
+    .choice-summary {
+      background: var(--blue-ice);
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.75rem;
+      border-left: 3px solid var(--blue);
+    }
+    .choice-summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    .choice-summary-row strong {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .choice-summary-total {
+      border-top: 1px solid rgba(10,37,64,0.1);
+      margin-top: 0.5rem;
+      padding-top: 0.7rem;
+    }
+    .choice-summary-total strong {
+      font-size: 1.2rem;
+      color: var(--blue);
+    }
+
+    .choice-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .choice-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 1.5rem 1.25rem;
+      background: var(--white);
+      border: 1px solid rgba(10,37,64,0.12);
+      cursor: pointer;
+      text-align: left;
+      transition:
+        border-color var(--duration-med) var(--ease-out),
+        background var(--duration-med) var(--ease-out),
+        transform var(--duration-fast) var(--ease-spring),
+        box-shadow var(--duration-med) var(--ease-out);
+      position: relative;
+    }
+    .choice-card i {
+      width: 26px;
+      height: 26px;
+      color: var(--blue);
+      stroke-width: 1.75;
+    }
+    .choice-card-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+    .choice-card-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .choice-card:hover {
+      border-color: var(--blue);
+      background: var(--blue-ice);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(37,99,235,0.12);
+    }
+    .choice-card:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+    }
+    .choice-card-primary {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+    .choice-card-primary i { color: var(--blue-sky); }
+    .choice-card-primary .choice-card-title { color: var(--white); }
+    .choice-card-primary .choice-card-desc { color: rgba(255,255,255,0.65); }
+    .choice-card-primary:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      box-shadow: 0 10px 30px rgba(30,58,138,0.4);
+    }
+
+    /* Guest form fields */
+    .guest-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     /* Confirmation success modal */
@@ -2547,6 +2715,7 @@
       .room-modal-amenities { grid-template-columns: 1fr; }
       .room-modal-dates-grid { grid-template-columns: 1fr; }
       .guest-fields { grid-template-columns: 1fr; }
+      .choice-options { grid-template-columns: 1fr; }
       .booking-card { grid-template-columns: 1fr; }
       .booking-actions { align-items: flex-start; min-width: 0; flex-direction: row; gap: 0.5rem; flex-wrap: wrap; }
       .room-modal-pricing { flex-direction: column; gap: 0.75rem; }
@@ -2563,11 +2732,7 @@
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="#" class="nav-logo" aria-label="Franco Diving Center - Home">
-        <img src="images/francologo.png" alt="" class="nav-logo-img" width="38" height="52" aria-hidden="true">
-        <span class="nav-logo-text">
-          <span class="nav-logo-name">Franco Diving Center</span>
-          <span class="nav-logo-tagline">Est. 1995 &middot; Sussex, Sierra Leone</span>
-        </span>
+        <img src="images/francologo.png" alt="Franco's Resort" class="nav-logo-img" aria-hidden="false">
       </a>
       <ul class="nav-links">
         <li><a href="#about">Our Story</a></li>
@@ -3429,6 +3594,7 @@
         amenities: ['Sea View', 'Ensuite Bathroom', 'Hot Water', 'Ceiling Fan', 'Mosquito Net', 'Towels Provided'],
         lowSeason: 57.50,
         highSeason: 69,
+        maxGuests: 2
       },
       'Deluxe Suite': {
         desc: 'Spacious corner suites with panoramic views of the river inlet and Sussex Bay. Premium bedding, air conditioning, mini fridge, flat-screen TV and a private seating area overlooking the water.',
@@ -3436,6 +3602,7 @@
         amenities: ['Panoramic View', 'Air Conditioning', 'Ensuite Bathroom', 'Hot Water', 'Flat-screen TV', 'Mini Fridge', 'Mosquito Net', 'Premium Bedding'],
         lowSeason: 85,
         highSeason: 110,
+        maxGuests: 4
       }
     };
 
@@ -3535,32 +3702,55 @@
       checkoutEl.value = '';
       checkoutEl.min = today;
 
-      // Reset guest inputs & errors
-      modal.querySelector('#guest-name').value = '';
-      modal.querySelector('#guest-phone').value = '';
-      modal.querySelector('#guest-email').value = '';
-      modal.querySelector('#guest-error').textContent = '';
+      // Reset guest count
+      const guestEl = modal.querySelector('#guest-count');
+      const guestMax = (room.maxGuests || 4);
+      guestEl.max = guestMax;
+      guestEl.value = 1;
+      updateGuestStepperLabel();
+      updateGuestStepperButtons();
+
+      // Reset error
+      const err = modal.querySelector('#guest-error');
+      if (err) err.textContent = '';
 
       // Reset displays
       modal.querySelector('.nights-display').innerHTML = 'Select dates to calculate total';
       modal.querySelector('.room-modal-total-value').textContent = '$0.00';
       modal.querySelector('.btn-book').disabled = true;
 
-      currentBooking = { roomName, rate, seasonLabel };
+      currentBooking = { roomName, rate, seasonLabel, guests: 1 };
       openModal('room-detail-modal');
       lucide.createIcons();
+    }
+
+    function updateGuestStepperLabel() {
+      const v = parseInt(document.getElementById('guest-count').value, 10) || 1;
+      const label = document.getElementById('guest-stepper-label');
+      if (label) label.textContent = `${v} ${v === 1 ? 'guest' : 'guests'}`;
+    }
+    function updateGuestStepperButtons() {
+      const input = document.getElementById('guest-count');
+      const v = parseInt(input.value, 10) || 1;
+      const min = parseInt(input.min, 10) || 1;
+      const max = parseInt(input.max, 10) || 6;
+      document.getElementById('guest-decr').disabled = v <= min;
+      document.getElementById('guest-incr').disabled = v >= max;
     }
 
     function updateBookingCalc() {
       const modal = document.getElementById('room-detail-modal');
       const checkin = modal.querySelector('#checkin-date').value;
       const checkout = modal.querySelector('#checkout-date').value;
+      const guests = parseInt(modal.querySelector('#guest-count').value, 10) || 1;
       const nights = calcNights(checkin, checkout);
+
+      currentBooking.guests = guests;
 
       if (nights > 0) {
         const total = nights * currentBooking.rate;
         modal.querySelector('.nights-display').innerHTML =
-          `<strong>${nights} night${nights > 1 ? 's' : ''}</strong> × $${currentBooking.rate}/night`;
+          `<strong>${nights} night${nights > 1 ? 's' : ''}</strong> × $${currentBooking.rate}/night · ${guests} ${guests === 1 ? 'guest' : 'guests'}`;
         modal.querySelector('.room-modal-total-value').textContent = `$${total.toFixed(2)}`;
         modal.querySelector('.btn-book').disabled = false;
         currentBooking.checkin = checkin;
@@ -3576,70 +3766,102 @@
       }
     }
 
-    function validateGuestInputs() {
-      const modal = document.getElementById('room-detail-modal');
-      const name = modal.querySelector('#guest-name').value.trim();
-      const phone = modal.querySelector('#guest-phone').value.trim();
-      const email = modal.querySelector('#guest-email').value.trim();
-      const errorEl = modal.querySelector('#guest-error');
-
-      if (name.length < 2) {
-        errorEl.textContent = 'Please enter your full name.';
-        modal.querySelector('#guest-name').focus();
-        return null;
-      }
-      // Basic phone check: at least 7 digits
-      const digits = phone.replace(/\D/g, '');
-      if (digits.length < 7) {
-        errorEl.textContent = 'Please enter a valid phone number.';
-        modal.querySelector('#guest-phone').focus();
-        return null;
-      }
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        errorEl.textContent = 'Please enter a valid email address, or leave it blank.';
-        modal.querySelector('#guest-email').focus();
-        return null;
-      }
-      errorEl.textContent = '';
-      return { name, phone, email };
-    }
-
-    function openSummary() {
-      const guest = validateGuestInputs();
-      if (!guest) return;
-
-      const b = currentBooking;
-      Object.assign(b, guest);
-
-      closeModal('room-detail-modal');
-
-      const sm = document.getElementById('summary-modal');
-      sm.querySelector('#sum-room').textContent = b.roomName;
-      sm.querySelector('#sum-checkin').textContent = formatDate(b.checkin);
-      sm.querySelector('#sum-checkout').textContent = formatDate(b.checkout);
-      sm.querySelector('#sum-nights').textContent = `${b.nights} night${b.nights > 1 ? 's' : ''}`;
-      sm.querySelector('#sum-rate').textContent = `$${b.rate}/night (${b.seasonLabel})`;
-      sm.querySelector('#sum-total').textContent = `$${b.total.toFixed(2)}`;
-      sm.querySelector('#sum-name').textContent = b.name;
-      sm.querySelector('#sum-phone').textContent = b.phone;
-      sm.querySelector('#sum-email').textContent = b.email || '—';
-      sm.querySelector('#sum-email-row').style.display = b.email ? '' : 'none';
-
-      setTimeout(() => openModal('summary-modal'), 100);
-    }
-
-    function goBackToRoom() {
-      closeModal('summary-modal');
-      setTimeout(() => openModal('room-detail-modal'), 100);
-    }
-
     function formatDate(iso) {
       return new Date(iso).toLocaleDateString('en-US', {
         weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
       });
     }
 
-    function confirmBooking() {
+    // ========== STEP 2: CHOICE MODAL ==========
+    function openReserveChoice() {
+      const b = currentBooking;
+      if (!b.checkin || !b.checkout || !b.nights) return;
+
+      const cm = document.getElementById('choice-modal');
+      cm.querySelector('#choice-room').textContent = b.roomName;
+      cm.querySelector('#choice-dates').textContent =
+        `${formatDate(b.checkin)} → ${formatDate(b.checkout)} · ${b.nights} night${b.nights > 1 ? 's' : ''}`;
+      cm.querySelector('#choice-guests').textContent = `${b.guests} ${b.guests === 1 ? 'guest' : 'guests'}`;
+      cm.querySelector('#choice-total').textContent = `$${b.total.toFixed(2)}`;
+
+      closeModal('room-detail-modal');
+      setTimeout(() => {
+        openModal('choice-modal');
+        lucide.createIcons();
+      }, 120);
+    }
+
+    // ========== STEP 3: GUEST DETAILS MODAL ==========
+    function proceedToGuest(payMode) {
+      currentBooking.payMode = payMode; // 'now' or 'later'
+
+      // Reset form
+      document.getElementById('g-name').value = '';
+      document.getElementById('g-email').value = '';
+      document.getElementById('g-phone').value = '';
+      document.getElementById('g-error').textContent = '';
+
+      // Update submit button label & subtitle to reflect choice
+      const sub = document.getElementById('guest-modal-sub');
+      const btn = document.getElementById('g-submit');
+      if (payMode === 'now') {
+        sub.textContent = 'Almost there — we just need a few details before payment.';
+        btn.textContent = 'Confirm & Pay with Flot';
+      } else {
+        sub.textContent = 'Lock in your reservation. You can pay any time before check-in.';
+        btn.textContent = 'Confirm Reservation';
+      }
+
+      closeModal('choice-modal');
+      setTimeout(() => {
+        openModal('guest-modal');
+        document.getElementById('g-name').focus();
+      }, 120);
+    }
+
+    function goBackToChoice() {
+      closeModal('guest-modal');
+      setTimeout(() => openModal('choice-modal'), 120);
+    }
+
+    function goBackToRoom() {
+      // Keep this name for back-compat with summary modal (legacy/hidden)
+      closeModal('choice-modal');
+      closeModal('guest-modal');
+      setTimeout(() => openModal('room-detail-modal'), 120);
+    }
+
+    function submitGuestDetails(event) {
+      event.preventDefault();
+      const name = document.getElementById('g-name').value.trim();
+      const email = document.getElementById('g-email').value.trim();
+      const phone = document.getElementById('g-phone').value.trim();
+      const errorEl = document.getElementById('g-error');
+
+      if (name.length < 2) {
+        errorEl.textContent = 'Please enter your full name.';
+        document.getElementById('g-name').focus();
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        document.getElementById('g-email').focus();
+        return;
+      }
+      const digits = phone.replace(/\D/g, '');
+      if (digits.length < 7) {
+        errorEl.textContent = 'Please enter a valid phone number.';
+        document.getElementById('g-phone').focus();
+        return;
+      }
+      errorEl.textContent = '';
+
+      Object.assign(currentBooking, { name, email, phone });
+      finalizeBooking();
+    }
+
+    // ========== STEP 4: FINALIZE — save + show success / pay now ==========
+    function finalizeBooking() {
       const b = currentBooking;
       const ref = generateBookingRef();
       const amountSLE = Math.round(b.total * USD_TO_SLE);
@@ -3652,6 +3874,7 @@
         checkin: b.checkin,
         checkout: b.checkout,
         nights: b.nights,
+        guests: b.guests || 1,
         totalUSD: b.total,
         amountSLE,
         name: b.name,
@@ -3667,21 +3890,35 @@
       updateBookingsBadge();
       window.__lastBookingId = ref;
 
-      closeModal('summary-modal');
-
       // Fill confirmation modal
       const cm = document.getElementById('confirm-modal');
       cm.querySelector('#confirm-name').textContent = b.name.split(' ')[0];
       cm.querySelector('#confirm-ref').textContent = ref;
       cm.querySelector('#confirm-room').textContent = b.roomName;
-      cm.querySelector('#confirm-dates').textContent = `${formatDate(b.checkin)} → ${formatDate(b.checkout)} · ${b.nights}n`;
+      cm.querySelector('#confirm-dates').textContent =
+        `${formatDate(b.checkin)} → ${formatDate(b.checkout)} · ${b.nights}n · ${b.guests} ${b.guests === 1 ? 'guest' : 'guests'}`;
       cm.querySelector('#confirm-total').textContent = `$${b.total.toFixed(2)} (~SLE ${amountSLE.toLocaleString()})`;
 
-      setTimeout(() => {
-        openModal('confirm-modal');
-        lucide.createIcons();
-      }, 120);
+      closeModal('guest-modal');
+
+      if (b.payMode === 'now') {
+        // Open Flot popup, then show confirmation when popup closes
+        setTimeout(() => {
+          openModal('confirm-modal');
+          lucide.createIcons();
+          payBooking(ref);
+        }, 120);
+      } else {
+        setTimeout(() => {
+          openModal('confirm-modal');
+          lucide.createIcons();
+        }, 120);
+      }
     }
+
+    // Legacy back-compat (kept so any cached references don't break)
+    function openSummary() { openReserveChoice(); }
+    function confirmBooking() { /* no-op — replaced by finalizeBooking */ }
 
     // ========== FLOT PAYMENT POPUP ==========
     function payBooking(bookingId) {
@@ -3757,7 +3994,7 @@
             <div class="booking-info">
               <span class="booking-ref">Reference <span class="booking-ref-id">${b.id}</span></span>
               <span class="booking-room">${b.roomName}</span>
-              <span class="booking-dates">${formatDate(b.checkin)} → ${formatDate(b.checkout)} · ${b.nights} night${b.nights > 1 ? 's' : ''}</span>
+              <span class="booking-dates">${formatDate(b.checkin)} → ${formatDate(b.checkout)} · ${b.nights} night${b.nights > 1 ? 's' : ''}${b.guests ? ` · ${b.guests} ${b.guests === 1 ? 'guest' : 'guests'}` : ''}</span>
               <span class="booking-guest">${escapeHtml(b.name)} &middot; ${escapeHtml(b.phone)}</span>
               <span class="booking-status ${paid ? 'booking-status-paid' : 'booking-status-pending'}">
                 ${paid ? 'Paid' : 'Awaiting payment'}
@@ -3816,7 +4053,7 @@
       });
     });
 
-    // Event: date inputs
+    // Event: date inputs + guest stepper
     document.addEventListener('DOMContentLoaded', () => {
       const checkinEl = document.getElementById('checkin-date');
       const checkoutEl = document.getElementById('checkout-date');
@@ -3834,6 +4071,36 @@
           updateBookingCalc();
         });
         checkoutEl.addEventListener('change', updateBookingCalc);
+      }
+
+      // Guest stepper
+      const guestInput = document.getElementById('guest-count');
+      const guestDecr = document.getElementById('guest-decr');
+      const guestIncr = document.getElementById('guest-incr');
+      if (guestInput && guestDecr && guestIncr) {
+        const change = (delta) => {
+          const v = parseInt(guestInput.value, 10) || 1;
+          const min = parseInt(guestInput.min, 10) || 1;
+          const max = parseInt(guestInput.max, 10) || 6;
+          const next = Math.min(max, Math.max(min, v + delta));
+          guestInput.value = next;
+          updateGuestStepperLabel();
+          updateGuestStepperButtons();
+          updateBookingCalc();
+        };
+        guestDecr.addEventListener('click', () => change(-1));
+        guestIncr.addEventListener('click', () => change(1));
+        guestInput.addEventListener('input', () => {
+          // Clamp manually-typed values
+          const v = parseInt(guestInput.value, 10);
+          const min = parseInt(guestInput.min, 10) || 1;
+          const max = parseInt(guestInput.max, 10) || 6;
+          if (isNaN(v) || v < min) guestInput.value = min;
+          if (v > max) guestInput.value = max;
+          updateGuestStepperLabel();
+          updateGuestStepperButtons();
+          updateBookingCalc();
+        });
       }
     });
 
@@ -3892,26 +4159,17 @@
               <label for="checkout-date">Check-out</label>
               <input type="date" id="checkout-date" required>
             </div>
+            <div class="date-field date-field-full">
+              <label for="guest-count">Number of Guests</label>
+              <div class="guest-stepper" role="group" aria-labelledby="guest-count">
+                <button type="button" class="guest-stepper-btn" id="guest-decr" aria-label="Decrease guests">&minus;</button>
+                <input type="number" id="guest-count" min="1" max="6" value="1" inputmode="numeric" aria-live="polite">
+                <button type="button" class="guest-stepper-btn" id="guest-incr" aria-label="Increase guests">+</button>
+                <span class="guest-stepper-label" id="guest-stepper-label">1 guest</span>
+              </div>
+            </div>
           </div>
           <div class="nights-display">Select dates to calculate total</div>
-        </div>
-
-        <div class="room-modal-guest">
-          <div class="room-modal-dates-title">Your Details</div>
-          <div class="guest-fields">
-            <div class="date-field">
-              <label for="guest-name">Full Name</label>
-              <input type="text" id="guest-name" placeholder="Jane Smith" autocomplete="name" required>
-            </div>
-            <div class="date-field">
-              <label for="guest-phone">Phone</label>
-              <input type="tel" id="guest-phone" placeholder="+232 76 000 000" autocomplete="tel" required>
-            </div>
-            <div class="date-field date-field-full">
-              <label for="guest-email">Email <span class="label-optional">(optional)</span></label>
-              <input type="email" id="guest-email" placeholder="you@example.com" autocomplete="email">
-            </div>
-          </div>
           <p class="guest-form-error" id="guest-error" role="alert" aria-live="polite"></p>
         </div>
 
@@ -3920,13 +4178,76 @@
           <div class="room-modal-total-value">$0.00</div>
         </div>
 
-        <button class="btn-book" onclick="openSummary()" disabled>Review Booking</button>
+        <button class="btn-book" onclick="openReserveChoice()" disabled>Book a Room</button>
       </div>
     </div>
   </div>
 
-  <!-- ====== BOOKING SUMMARY MODAL ====== -->
-  <div class="modal-overlay" id="summary-modal">
+  <!-- ====== RESERVE CHOICE MODAL (Pay Later vs Pay Now) ====== -->
+  <div class="modal-overlay" id="choice-modal">
+    <div class="modal-content modal-content-narrow">
+      <button class="modal-close" onclick="closeModal('choice-modal')" aria-label="Close">&times;</button>
+      <div class="summary-modal-body">
+        <h2 class="summary-title" style="text-align:center;">How would you like to book?</h2>
+        <p class="summary-subtitle" style="text-align:center;">Reserve your room first, then choose when to pay.</p>
+
+        <div class="choice-summary">
+          <div class="choice-summary-row"><span>Room</span><strong id="choice-room"></strong></div>
+          <div class="choice-summary-row"><span>Stay</span><strong id="choice-dates"></strong></div>
+          <div class="choice-summary-row"><span>Guests</span><strong id="choice-guests"></strong></div>
+          <div class="choice-summary-row choice-summary-total"><span>Total</span><strong id="choice-total"></strong></div>
+        </div>
+
+        <div class="choice-options">
+          <button class="choice-card" onclick="proceedToGuest('later')" type="button">
+            <i data-lucide="clock"></i>
+            <span class="choice-card-title">Reserve &amp; Pay Later</span>
+            <span class="choice-card-desc">Hold the room. Pay any time before check-in from <strong>My Bookings</strong>.</span>
+          </button>
+          <button class="choice-card choice-card-primary" onclick="proceedToGuest('now')" type="button">
+            <i data-lucide="zap"></i>
+            <span class="choice-card-title">Reserve &amp; Pay Now</span>
+            <span class="choice-card-desc">Lock it in immediately with secure Flot checkout.</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== GUEST DETAILS MODAL ====== -->
+  <div class="modal-overlay" id="guest-modal">
+    <div class="modal-content modal-content-narrow">
+      <button class="modal-close" onclick="closeModal('guest-modal')" aria-label="Close">&times;</button>
+      <div class="summary-modal-body">
+        <h2 class="summary-title">Your Details</h2>
+        <p class="summary-subtitle" id="guest-modal-sub">Just a few details to complete your booking.</p>
+
+        <form class="guest-form" id="guest-form" onsubmit="submitGuestDetails(event)">
+          <div class="date-field">
+            <label for="g-name">Full Name</label>
+            <input type="text" id="g-name" placeholder="Jane Smith" autocomplete="name" required>
+          </div>
+          <div class="date-field">
+            <label for="g-email">Email</label>
+            <input type="email" id="g-email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <div class="date-field">
+            <label for="g-phone">Phone</label>
+            <input type="tel" id="g-phone" placeholder="+232 76 000 000" autocomplete="tel" required>
+          </div>
+          <p class="guest-form-error" id="g-error" role="alert" aria-live="polite"></p>
+
+          <div class="summary-actions" style="margin-top: 1.5rem;">
+            <button class="btn-back" type="button" onclick="goBackToChoice()">Go Back</button>
+            <button class="btn-checkout" type="submit" id="g-submit">Confirm Booking</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== BOOKING SUMMARY MODAL (legacy / hidden) ====== -->
+  <div class="modal-overlay" id="summary-modal" hidden>
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('summary-modal')" aria-label="Close">&times;</button>
       <div class="summary-modal-body">
