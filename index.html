@@ -1596,6 +1596,43 @@
     .footer-copy {
       font-size: 0.8rem;
       color: var(--text-on-dark-muted);
+      margin-right: auto;
+    }
+
+    .footer-credit {
+      font-size: 0.8rem;
+      color: var(--text-on-dark-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-credit-link {
+      color: var(--blue-sky);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      position: relative;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+    .footer-credit-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 1px;
+      background: var(--blue-sky);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--duration-med) var(--ease-out);
+    }
+    .footer-credit-link:hover { color: var(--white); }
+    .footer-credit-link:hover::after {
+      transform: scaleX(1);
+      background: var(--white);
+    }
+    .footer-credit-link:focus-visible {
+      outline: 2px solid var(--blue-sky);
+      outline-offset: 3px;
+      border-radius: 2px;
     }
 
     .footer-socials {
@@ -1752,6 +1789,7 @@
         text-align: center;
         gap: 1rem;
       }
+      .footer-copy { margin-right: 0; }
       .footer-socials { justify-content: center; }
     }
 
@@ -3059,14 +3097,11 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-brand">
-          <img src="images/francologo.png" alt="" class="footer-brand-img" width="36" height="49" aria-hidden="true" loading="lazy">
-          <div class="footer-brand-text">
-            <span class="footer-brand-name">Franco Diving Center</span>
-            <span class="footer-brand-sub">Est. 1995 &middot; Sussex, Sierra Leone</span>
-          </div>
-        </div>
         <p class="footer-copy">&copy; 2026 Franco Diving Center. All rights reserved.</p>
+        <p class="footer-credit">
+          Powered and Built by
+          <a href="https://www.flotme.ai/business" target="_blank" rel="noopener noreferrer" class="footer-credit-link">Flot</a>
+        </p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/fabrizio_miari" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
