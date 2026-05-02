@@ -1127,6 +1127,208 @@
       white-space: nowrap;
       letter-spacing: 0.02em;
     }
+    .menu-row-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    .menu-add-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.95rem;
+      border: 1px solid var(--blue);
+      background: transparent;
+      color: var(--blue);
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-spring);
+      white-space: nowrap;
+    }
+    .menu-add-btn i { width: 14px; height: 14px; }
+    .menu-add-btn:hover { background: var(--blue); color: var(--white); transform: translateY(-1px); }
+    .menu-add-btn:active { transform: translateY(0) scale(0.97); }
+    .menu-add-btn:focus-visible { outline: 2px solid var(--blue-sky); outline-offset: 2px; }
+    .menu-add-btn-group { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
+    .menu-add-btn-small { padding: 0.4rem 0.7rem; font-size: 0.65rem; }
+
+    /* Toast notification */
+    .toast-stack {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 10001;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      pointer-events: none;
+    }
+    .toast {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.1rem;
+      background: var(--navy);
+      color: var(--white);
+      border-left: 3px solid var(--blue-sky);
+      box-shadow: 0 12px 30px rgba(10,37,64,0.35);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      pointer-events: auto;
+      animation: toastIn 0.35s var(--ease-out), toastOut 0.35s var(--ease-out) 2.4s forwards;
+      max-width: 320px;
+    }
+    .toast i { width: 16px; height: 16px; color: var(--blue-sky); flex-shrink: 0; }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes toastOut {
+      to { opacity: 0; transform: translateX(20px); }
+    }
+
+    /* Cart modal */
+    #cart-modal .modal-content { max-width: 640px; }
+    .cart-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1rem 0 1.5rem;
+      max-height: 50vh;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+    }
+    .cart-list::-webkit-scrollbar { width: 4px; }
+    .cart-list::-webkit-scrollbar-thumb { background: var(--sand-dark); border-radius: 4px; }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.85rem 1rem;
+      background: var(--white);
+      border: 1px solid rgba(10,37,64,0.07);
+      border-left: 3px solid var(--blue-sky);
+    }
+    .cart-item-info { min-width: 0; }
+    .cart-item-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.005em;
+      margin-bottom: 0.1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .cart-item-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .cart-item-qty {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid rgba(12,27,51,0.12);
+      background: var(--white);
+    }
+    .cart-item-qty button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: transparent;
+      color: var(--blue);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--duration-fast) var(--ease-out);
+    }
+    .cart-item-qty button:hover { background: var(--blue-ice); }
+    .cart-item-qty button:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+    .cart-item-qty span {
+      min-width: 26px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 0 2px;
+      border-left: 1px solid rgba(12,27,51,0.08);
+      border-right: 1px solid rgba(12,27,51,0.08);
+    }
+    .cart-item-line {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.1rem;
+      min-width: 90px;
+    }
+    .cart-item-price {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.02em;
+    }
+    .cart-item-remove {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      cursor: pointer;
+      padding: 0;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+    .cart-item-remove:hover { color: #DC2626; }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.1rem 1.25rem;
+      background: var(--navy);
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .cart-total-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .cart-total-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--blue-sky);
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    .cart-empty i {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 0.75rem;
+      color: var(--sand-dark);
+      display: block;
+    }
 
     .menu-footnote {
       margin-top: 1.25rem;
@@ -1778,7 +1980,11 @@
       .menu-tab { padding: 0.75rem 1rem; font-size: 0.75rem; }
       .menu-tabs { gap: 0; }
       .full-menu { margin-top: var(--space-2xl); }
-      .menu-row { flex-direction: column; gap: 0.35rem; align-items: flex-start; }
+      .menu-row { flex-direction: column; gap: 0.5rem; align-items: stretch; }
+      .menu-row-actions { flex-direction: row; align-items: center; justify-content: space-between; }
+      .cart-item { grid-template-columns: 1fr auto; gap: 0.6rem 1rem; }
+      .cart-item-line { grid-column: 2; align-items: flex-end; }
+      .cart-item-qty { grid-column: 1 / -1; justify-self: start; }
       .menu-row-price { align-self: flex-start; }
 
       .contact-directions {
@@ -2744,6 +2950,12 @@
           <a href="#" class="nav-bookings-link" onclick="openMyBookings(); return false;">
             My Bookings
             <span class="nav-bookings-badge" id="nav-bookings-badge" hidden>0</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-bookings-link nav-cart-link" onclick="openCart(); return false;" aria-label="View cart">
+            <i data-lucide="shopping-bag" style="width:18px;height:18px;"></i>
+            <span class="nav-bookings-badge nav-cart-badge" id="nav-cart-badge" hidden>0</span>
           </a>
         </li>
         <li><a href="#rooms" class="nav-cta">Book Your Stay</a></li>
@@ -4030,6 +4242,354 @@
     // Initialise badge on load
     updateBookingsBadge();
 
+    // ========== MENU CART SYSTEM ==========
+    const CART_KEY = 'franco_cart_v1';
+    const ORDERS_KEY = 'franco_orders_v1';
+
+    function loadCart() {
+      try {
+        const raw = localStorage.getItem(CART_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch { return []; }
+    }
+    function saveCart(items) {
+      try { localStorage.setItem(CART_KEY, JSON.stringify(items)); }
+      catch (e) { console.warn('Unable to persist cart', e); }
+      updateCartBadge();
+    }
+    function loadOrders() {
+      try { return JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]'); }
+      catch { return []; }
+    }
+    function saveOrders(list) {
+      try { localStorage.setItem(ORDERS_KEY, JSON.stringify(list)); }
+      catch {}
+    }
+
+    function cartCount() {
+      return loadCart().reduce((sum, it) => sum + it.qty, 0);
+    }
+    function cartTotalLe() {
+      return loadCart().reduce((sum, it) => sum + (it.priceLe * it.qty), 0);
+    }
+
+    function updateCartBadge() {
+      const badge = document.getElementById('nav-cart-badge');
+      if (!badge) return;
+      const n = cartCount();
+      if (n > 0) {
+        badge.textContent = String(n);
+        badge.hidden = false;
+      } else {
+        badge.hidden = true;
+      }
+    }
+
+    function showToast(message, icon = 'check-circle') {
+      const stack = document.getElementById('toast-stack');
+      if (!stack) return;
+      const el = document.createElement('div');
+      el.className = 'toast';
+      el.innerHTML = `<i data-lucide="${icon}"></i><span>${escapeHtml(message)}</span>`;
+      stack.appendChild(el);
+      lucide.createIcons();
+      setTimeout(() => el.remove(), 3000);
+    }
+
+    function addToCart(id, name, priceLe, variant) {
+      const items = loadCart();
+      const key = variant ? `${id}__${variant}` : id;
+      const existing = items.find(i => i.key === key);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        items.push({ key, id, name, variant: variant || '', priceLe, qty: 1 });
+      }
+      saveCart(items);
+      const label = variant ? `${name} (${variant})` : name;
+      showToast(`Added ${label} to cart`);
+    }
+
+    function setCartItemQty(key, delta) {
+      const items = loadCart();
+      const item = items.find(i => i.key === key);
+      if (!item) return;
+      item.qty = Math.max(0, item.qty + delta);
+      const filtered = items.filter(i => i.qty > 0);
+      saveCart(filtered);
+      renderCart();
+    }
+
+    function removeCartItem(key) {
+      saveCart(loadCart().filter(i => i.key !== key));
+      renderCart();
+    }
+
+    function clearCart() {
+      if (!cartCount()) return;
+      if (!confirm('Clear all items from your cart?')) return;
+      saveCart([]);
+      renderCart();
+    }
+
+    function openCart() {
+      // Close other modals first
+      document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+      renderCart();
+      openModal('cart-modal');
+      lucide.createIcons();
+    }
+
+    function renderCart() {
+      const list = document.getElementById('cart-list');
+      const empty = document.getElementById('cart-empty');
+      const totalRow = document.getElementById('cart-total-row');
+      const actions = document.getElementById('cart-actions');
+      const fineprint = document.getElementById('cart-fineprint');
+      const items = loadCart();
+
+      if (!items.length) {
+        list.innerHTML = '';
+        empty.hidden = false;
+        totalRow.hidden = true;
+        actions.hidden = true;
+        fineprint.hidden = true;
+        lucide.createIcons();
+        return;
+      }
+      empty.hidden = true;
+      totalRow.hidden = false;
+      actions.hidden = false;
+      fineprint.hidden = false;
+
+      list.innerHTML = items.map(it => {
+        const lineTotal = it.priceLe * it.qty;
+        const variant = it.variant ? ` <span style="color:var(--text-muted);font-weight:400;font-size:0.78rem;">(${escapeHtml(it.variant)})</span>` : '';
+        return `
+          <article class="cart-item" data-key="${escapeHtml(it.key)}">
+            <div class="cart-item-info">
+              <div class="cart-item-name">${escapeHtml(it.name)}${variant}</div>
+              <div class="cart-item-meta">Le ${it.priceLe.toLocaleString()} each</div>
+            </div>
+            <div class="cart-item-qty">
+              <button type="button" aria-label="Decrease" onclick="setCartItemQty('${escapeHtml(it.key)}', -1)">&minus;</button>
+              <span>${it.qty}</span>
+              <button type="button" aria-label="Increase" onclick="setCartItemQty('${escapeHtml(it.key)}', 1)">+</button>
+            </div>
+            <div class="cart-item-line">
+              <span class="cart-item-price">Le ${lineTotal.toLocaleString()}</span>
+              <button type="button" class="cart-item-remove" onclick="removeCartItem('${escapeHtml(it.key)}')">Remove</button>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      document.getElementById('cart-total-value').textContent = `Le ${cartTotalLe().toLocaleString()}`;
+      lucide.createIcons();
+    }
+
+    function checkoutCart() {
+      const items = loadCart();
+      if (!items.length) return;
+      const total = cartTotalLe();
+      const count = cartCount();
+
+      // Pre-fill mini summary
+      document.getElementById('order-items-count').textContent =
+        `${count} item${count > 1 ? 's' : ''}`;
+      document.getElementById('order-total-mini').textContent = `Le ${total.toLocaleString()}`;
+
+      // Reset form
+      document.getElementById('o-name').value = '';
+      document.getElementById('o-phone').value = '';
+      document.getElementById('o-email').value = '';
+      document.getElementById('o-error').textContent = '';
+
+      closeModal('cart-modal');
+      setTimeout(() => {
+        openModal('order-guest-modal');
+        document.getElementById('o-name').focus();
+      }, 120);
+    }
+
+    function goBackToCart() {
+      closeModal('order-guest-modal');
+      setTimeout(() => openModal('cart-modal'), 120);
+    }
+
+    function generateOrderRef() {
+      const rand = Math.random().toString(36).slice(2, 7).toUpperCase();
+      return `FDC-O-${rand}`;
+    }
+
+    function submitOrderDetails(event) {
+      event.preventDefault();
+      const name = document.getElementById('o-name').value.trim();
+      const phone = document.getElementById('o-phone').value.trim();
+      const email = document.getElementById('o-email').value.trim();
+      const errorEl = document.getElementById('o-error');
+
+      if (name.length < 2) {
+        errorEl.textContent = 'Please enter your full name.';
+        document.getElementById('o-name').focus();
+        return;
+      }
+      const digits = phone.replace(/\D/g, '');
+      if (digits.length < 7) {
+        errorEl.textContent = 'Please enter a valid phone number.';
+        document.getElementById('o-phone').focus();
+        return;
+      }
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address, or leave it blank.';
+        document.getElementById('o-email').focus();
+        return;
+      }
+      errorEl.textContent = '';
+
+      const items = loadCart();
+      if (!items.length) return;
+      const total = cartTotalLe();
+      const ref = generateOrderRef();
+
+      const order = {
+        id: ref,
+        items: items,
+        totalLe: total,
+        name,
+        phone,
+        email,
+        status: 'pending',
+        createdAt: new Date().toISOString()
+      };
+      const orders = loadOrders();
+      orders.unshift(order);
+      saveOrders(orders);
+
+      // Clear cart
+      saveCart([]);
+      closeModal('order-guest-modal');
+
+      // Open Flot popup with the order total in SLE
+      const url = `${FLOT_CHECKOUT_URL}?amount=${total}`;
+      const w = 440, h = 740;
+      const left = Math.round(window.screenX + (window.outerWidth - w) / 2);
+      const top = Math.round(window.screenY + (window.outerHeight - h) / 2);
+      const popup = window.open(url, 'FlotCheckout', `popup=yes,width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes,noopener=yes`);
+
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        window.open(url, '_blank', 'noopener');
+      } else {
+        const poll = setInterval(() => {
+          if (popup.closed) {
+            clearInterval(poll);
+            setTimeout(() => {
+              const didPay = confirm('Did your payment complete successfully? Click OK to mark this order as paid.');
+              if (didPay) {
+                const fresh = loadOrders();
+                const idx = fresh.findIndex(o => o.id === ref);
+                if (idx !== -1) {
+                  fresh[idx].status = 'paid';
+                  fresh[idx].paidAt = new Date().toISOString();
+                  saveOrders(fresh);
+                }
+              }
+            }, 300);
+          }
+        }, 800);
+      }
+
+      showToast(`Order ${ref} placed`, 'sparkles');
+    }
+
+    // ========== MENU ROW ENHANCEMENT (parse prices, inject Add buttons) ==========
+    function slugify(str) {
+      return String(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+    function parsePriceLe(text) {
+      // Handles "Le 400" → [400], "Le 750 / 1,500" → [750, 1500]
+      const matches = String(text).match(/[\d,]+/g) || [];
+      return matches.map(m => parseInt(m.replace(/,/g, ''), 10)).filter(n => !isNaN(n));
+    }
+    function detectVariants(descText) {
+      // Looks for "(500g / 1kg)" style hints
+      const m = String(descText || '').match(/\(([^)]+)\)/);
+      if (!m) return null;
+      const parts = m[1].split('/').map(s => s.trim());
+      if (parts.length === 2) return parts;
+      return null;
+    }
+    function enhanceMenuRows() {
+      document.querySelectorAll('.menu-row').forEach((row, i) => {
+        if (row.dataset.enhanced) return;
+        const nameEl = row.querySelector('.menu-row-name');
+        const priceEl = row.querySelector('.menu-row-price');
+        if (!nameEl || !priceEl) return;
+
+        // Extract just the dish name (text before the .menu-row-desc span)
+        const descSpan = nameEl.querySelector('.menu-row-desc');
+        const descText = descSpan ? descSpan.textContent : '';
+        let dishName = '';
+        for (const node of nameEl.childNodes) {
+          if (node.nodeType === Node.TEXT_NODE) dishName += node.textContent;
+        }
+        dishName = dishName.trim();
+        if (!dishName) return;
+
+        const prices = parsePriceLe(priceEl.textContent);
+        if (!prices.length) return;
+
+        const id = slugify(dishName) || `item-${i}`;
+
+        // Build the actions column
+        const actions = document.createElement('div');
+        actions.className = 'menu-row-actions';
+
+        if (prices.length === 1) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'menu-add-btn';
+          btn.innerHTML = '<i data-lucide="plus"></i> Add';
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addToCart(id, dishName, prices[0]);
+          });
+          actions.appendChild(btn);
+        } else {
+          // Two prices — try to detect variant labels (e.g. 500g / 1kg)
+          const variants = detectVariants(descText) || prices.map((_, idx) => `Option ${idx + 1}`);
+          const group = document.createElement('div');
+          group.className = 'menu-add-btn-group';
+          prices.forEach((p, idx) => {
+            const variantLabel = variants[idx] || '';
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'menu-add-btn menu-add-btn-small';
+            btn.innerHTML = `<i data-lucide="plus"></i> ${escapeHtml(variantLabel)}`;
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              addToCart(id, dishName, p, variantLabel);
+            });
+            group.appendChild(btn);
+          });
+          actions.appendChild(group);
+        }
+
+        row.appendChild(actions);
+        row.dataset.enhanced = '1';
+      });
+      lucide.createIcons();
+    }
+
+    // Initialise cart and enhance menu on load
+    updateCartBadge();
+    enhanceMenuRows();
+    // Also re-enhance after lucide icons render (in case rows added later)
+    document.addEventListener('DOMContentLoaded', () => {
+      enhanceMenuRows();
+      updateCartBadge();
+    });
+
     // ========== MENU TABS ==========
     document.querySelectorAll('.menu-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -4329,6 +4889,77 @@
           <button class="btn-checkout" onclick="payBooking(window.__lastBookingId)">Pay Now with Flot</button>
         </div>
         <p class="summary-fineprint">You can also pay later &mdash; find your booking anytime under <strong>My Bookings</strong> in the menu.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== TOAST STACK ====== -->
+  <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ====== CART MODAL ====== -->
+  <div class="modal-overlay" id="cart-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('cart-modal')" aria-label="Close">&times;</button>
+      <div class="summary-modal-body">
+        <h2 class="summary-title">Your Order</h2>
+        <p class="summary-subtitle">Review your items, then proceed to checkout.</p>
+
+        <div class="cart-list" id="cart-list"></div>
+
+        <div class="cart-empty" id="cart-empty" hidden>
+          <i data-lucide="shopping-bag"></i>
+          <p>Your cart is empty. Pick something delicious from the menu.</p>
+        </div>
+
+        <div class="cart-total-row" id="cart-total-row" hidden>
+          <span class="cart-total-label">Total</span>
+          <span class="cart-total-value" id="cart-total-value">Le 0</span>
+        </div>
+
+        <div class="summary-actions" id="cart-actions" hidden>
+          <button class="btn-back" onclick="clearCart()">Clear Cart</button>
+          <button class="btn-checkout" onclick="checkoutCart()">Proceed to Checkout</button>
+        </div>
+        <p class="summary-fineprint" id="cart-fineprint" hidden>
+          Pay securely with Flot. We'll have your order ready when you arrive.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== ORDER GUEST DETAILS MODAL ====== -->
+  <div class="modal-overlay" id="order-guest-modal">
+    <div class="modal-content modal-content-narrow">
+      <button class="modal-close" onclick="closeModal('order-guest-modal')" aria-label="Close">&times;</button>
+      <div class="summary-modal-body">
+        <h2 class="summary-title">Your Details</h2>
+        <p class="summary-subtitle">A few details before we send your order to the kitchen.</p>
+
+        <div class="choice-summary" id="order-summary-mini">
+          <div class="choice-summary-row"><span>Items</span><strong id="order-items-count"></strong></div>
+          <div class="choice-summary-row choice-summary-total"><span>Total</span><strong id="order-total-mini"></strong></div>
+        </div>
+
+        <form class="guest-form" id="order-guest-form" onsubmit="submitOrderDetails(event)">
+          <div class="date-field">
+            <label for="o-name">Full Name</label>
+            <input type="text" id="o-name" placeholder="Jane Smith" autocomplete="name" required>
+          </div>
+          <div class="date-field">
+            <label for="o-phone">Phone</label>
+            <input type="tel" id="o-phone" placeholder="+232 76 000 000" autocomplete="tel" required>
+          </div>
+          <div class="date-field">
+            <label for="o-email">Email <span class="label-optional">(optional)</span></label>
+            <input type="email" id="o-email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <p class="guest-form-error" id="o-error" role="alert" aria-live="polite"></p>
+
+          <div class="summary-actions" style="margin-top: 1.5rem;">
+            <button class="btn-back" type="button" onclick="goBackToCart()">Back to Cart</button>
+            <button class="btn-checkout" type="submit">Pay with Flot</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
