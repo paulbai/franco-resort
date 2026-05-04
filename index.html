@@ -2268,6 +2268,41 @@
       margin-bottom: 1.5rem;
     }
 
+    .room-modal-tour {
+      margin: 0 0 1.5rem;
+      padding: 0;
+      background: var(--navy-deep);
+      border: 1px solid rgba(10,37,64,0.08);
+      overflow: hidden;
+      position: relative;
+    }
+    .room-modal-tour-label {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 1rem;
+      background: var(--navy);
+      color: var(--blue-sky);
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .room-modal-tour-label i {
+      width: 16px;
+      height: 16px;
+      color: var(--blue-sky);
+    }
+    .room-modal-tour-video {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 360px;
+      object-fit: cover;
+      background: #000;
+    }
+
     .room-modal-amenities {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -3173,7 +3208,7 @@
       <div class="rooms-grid rooms-grid-two">
         <div class="room-card" tabindex="0">
           <div class="room-card-image">
-            <img src="https://placehold.co/480x320/1E3A8A/FFFFFF?text=Standard+Room" alt="Standard sea-view room at Franco Diving Center" loading="lazy" width="600" height="400">
+            <img src="images/room-standard.jpg" alt="Standard room at Franco's Resort with ensuite bathroom and queen bed" loading="lazy" width="600" height="400">
           </div>
           <div class="room-card-body">
             <h3 class="room-card-title">Standard Room</h3>
@@ -3189,7 +3224,7 @@
 
         <div class="room-card" tabindex="0">
           <div class="room-card-image">
-            <img src="https://placehold.co/480x320/2563EB/FFFFFF?text=Deluxe+Suite" alt="Deluxe suite with panoramic ocean views and premium amenities" loading="lazy" width="600" height="400">
+            <img src="images/room-deluxe.jpg" alt="Deluxe Suite at Franco's Resort with mosquito net and decorative wall art" loading="lazy" width="600" height="400">
           </div>
           <div class="room-card-body">
             <h3 class="room-card-title">Deluxe Suite</h3>
@@ -3911,16 +3946,18 @@
     // ========== ROOM BOOKING SYSTEM ==========
     const roomData = {
       'Standard Room': {
-        desc: 'Comfortable ensuite rooms with sea views, a private hot water bathroom, ceiling fan and mosquito net. Clean, simple, and everything you need for a restful tropical stay on Sussex Beach.',
-        img: 'https://placehold.co/480x320/1E3A8A/FFFFFF?text=Standard+Room',
-        amenities: ['Sea View', 'Ensuite Bathroom', 'Hot Water', 'Ceiling Fan', 'Mosquito Net', 'Towels Provided'],
+        desc: 'Comfortable ensuite rooms with a private hot water bathroom, large wardrobe, ceiling fan and mosquito net. Clean, simple, and everything you need for a restful tropical stay on Sussex Beach.',
+        img: 'images/room-standard.jpg',
+        tourVideo: 'images/room-tour-standard.mp4',
+        amenities: ['Sea View', 'Ensuite Bathroom', 'Hot Water', 'Ceiling Fan', 'Mosquito Net', 'Wardrobe', 'Towels Provided'],
         lowSeason: 57.50,
         highSeason: 69,
         maxGuests: 2
       },
       'Deluxe Suite': {
-        desc: 'Spacious corner suites with panoramic views of the river inlet and Sussex Bay. Premium bedding, air conditioning, mini fridge, flat-screen TV and a private seating area overlooking the water.',
-        img: 'https://placehold.co/480x320/2563EB/FFFFFF?text=Deluxe+Suite',
+        desc: 'Spacious corner suites with panoramic views, premium bedding, air conditioning, mini fridge, flat-screen TV and a private ensuite bathroom. Decorated with curated local artwork.',
+        img: 'images/room-deluxe.jpg',
+        tourVideo: 'images/room-tour-deluxe.mp4',
         amenities: ['Panoramic View', 'Air Conditioning', 'Ensuite Bathroom', 'Hot Water', 'Flat-screen TV', 'Mini Fridge', 'Mosquito Net', 'Premium Bedding'],
         lowSeason: 85,
         highSeason: 110,
@@ -3955,8 +3992,12 @@
     }
 
     function closeModal(id) {
-      document.getElementById(id).classList.remove('active');
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('active');
       document.body.style.overflow = '';
+      // Pause any inline video inside the closed modal
+      el.querySelectorAll('video').forEach(v => { try { v.pause(); } catch {} });
     }
 
     // ========== BOOKINGS STORAGE ==========
@@ -4003,6 +4044,21 @@
       modal.querySelector('.room-modal-hero img').alt = roomName;
       modal.querySelector('.room-modal-hero-title').textContent = roomName;
       modal.querySelector('.room-modal-desc').textContent = room.desc;
+
+      // Tour video (optional)
+      const tourFig = modal.querySelector('#room-modal-tour');
+      const tourVid = modal.querySelector('#room-modal-tour-video');
+      if (room.tourVideo) {
+        if (tourVid.src !== new URL(room.tourVideo, location.href).href) {
+          tourVid.src = room.tourVideo;
+        }
+        tourVid.poster = room.img;
+        tourFig.hidden = false;
+      } else {
+        tourVid.removeAttribute('src');
+        tourVid.load && tourVid.load();
+        tourFig.hidden = true;
+      }
 
       // Amenities
       const amenGrid = modal.querySelector('.room-modal-amenities');
@@ -4795,6 +4851,7 @@
         } else {
           overlay.classList.remove('active');
           document.body.style.overflow = '';
+          overlay.querySelectorAll('video').forEach(v => { try { v.pause(); } catch {} });
         }
       });
     });
@@ -4805,7 +4862,10 @@
         closeFlotCheckout();
         return;
       }
-      document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+      document.querySelectorAll('.modal-overlay.active').forEach(m => {
+        m.classList.remove('active');
+        m.querySelectorAll('video').forEach(v => { try { v.pause(); } catch {} });
+      });
       document.body.style.overflow = '';
     });
   </script>
@@ -4820,6 +4880,14 @@
       </div>
       <div class="room-modal-body">
         <p class="room-modal-desc"></p>
+
+        <figure class="room-modal-tour" id="room-modal-tour" hidden>
+          <div class="room-modal-tour-label">
+            <i data-lucide="play-circle"></i>
+            <span>Take a quick walk-through</span>
+          </div>
+          <video class="room-modal-tour-video" id="room-modal-tour-video" muted loop playsinline preload="metadata" controls></video>
+        </figure>
 
         <div class="room-modal-amenities"></div>
 
