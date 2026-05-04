@@ -4842,17 +4842,31 @@
       }
     });
 
-    // Close modals on overlay click or Escape
+    // Close modals on click anywhere except interactive controls.
+    // Interactive selectors that should NOT trigger close — clicks on these
+    // bubble through normally so users can still interact with the form.
+    const KEEP_OPEN_SELECTOR = [
+      'button', 'a', 'input', 'select', 'textarea', 'label',
+      'video', 'iframe',
+      '.room-modal-tour', '.modal-content form'
+    ].join(',');
+
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
       overlay.addEventListener('click', (e) => {
-        if (e.target !== overlay) return;
+        // The Flot checkout iframe is fully interactive — never auto-close
+        // unless user explicitly clicks the dark overlay area outside it
         if (overlay.id === 'flot-modal') {
-          closeFlotCheckout();
-        } else {
-          overlay.classList.remove('active');
-          document.body.style.overflow = '';
-          overlay.querySelectorAll('video').forEach(v => { try { v.pause(); } catch {} });
+          if (e.target === overlay) closeFlotCheckout();
+          return;
         }
+
+        // For all other modals: any click that isn't on an interactive
+        // control closes the popup
+        if (e.target.closest(KEEP_OPEN_SELECTOR)) return;
+
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        overlay.querySelectorAll('video').forEach(v => { try { v.pause(); } catch {} });
       });
     });
     document.addEventListener('keydown', (e) => {
